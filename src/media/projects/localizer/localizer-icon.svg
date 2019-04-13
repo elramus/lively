@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="496px" height="496px" viewBox="0 0 496 496" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill-rule="nonzero">
+            <rect id="Rectangle" fill="#4A4A4A" x="0" y="0" width="496" height="496"></rect>
+            <g id="localizer-icon" transform="translate(72.000000, 136.000000)" fill="#FFFFFF">
+                <polygon id="Shape" points="142.4 222.8 91.5 222.8 91.5 43.6 0 43.6 0 0 234 0 234 43.6 142.5 43.6 142.5 222.8"></polygon>
+                <path d="M349,100.7 L317.2,100.7 C321.8,102.3 323,102.6 324.3,103.2 C323.8,104.4 322.4,105 319.9,105 C309.7,134 295.7,157 277.1,175.5 C297.1,192.1 321.6,204.3 351.1,211 C348.3,213.8 344.6,219.1 342.6,222.8 C312.4,215 287.6,202.1 267.3,184.3 C247.3,201.1 222.8,213.5 192.7,222.6 C191.5,219.6 188.1,214.6 185.8,211.8 C214.8,203.5 238.8,191.8 258.2,175.8 C239.1,156.2 224.6,131.8 214.2,103 L221.4,100.7 L187.3,100.7 L187.3,89.1 L261.3,89.1 L261.3,58.2 L277,59.3 C276.8,60.5 275.8,61.4 273.5,61.8 L273.5,89.2 L349,89.2 L349,100.7 Z M226.6,100.7 C235.8,126.5 249.6,148.9 268.1,167.1 C285.6,149.6 298.8,127.9 308.2,100.7 L226.6,100.7 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
