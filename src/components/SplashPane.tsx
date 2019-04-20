@@ -20,14 +20,13 @@ const Container = styled('section')`
 const NavItem = styled('li') <{ hoverColor: string }>`
   display: inline-block;
   list-style-type: none;
-  margin: 0 1em;
   cursor: pointer;
   a {
     position: relative;
     display: flex;
     align-items: center;
     font-family: 'pragati narrow', sans-serif;
-    padding: 0.5em;
+    padding: 0 1.5em;
     font-size: ${props => props.theme.ms3};
     transition: transform 150ms ease-out;
     .linkIcon {
@@ -46,10 +45,10 @@ const NavItem = styled('li') <{ hoverColor: string }>`
     &:hover, &:focus {
       outline: none;
       color: ${props => props.hoverColor};
-      transform: translateY(-0.35em);
+      transform: translateY(-0.5em);
       .fa-angle-down {
         opacity: 1;
-        transform: translateY(0.15em);
+        transform: translateY(0.5em);
       }
     }
   }

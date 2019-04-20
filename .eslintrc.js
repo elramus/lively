@@ -6,7 +6,6 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -22,12 +21,12 @@ module.exports = {
   },
   plugins: [
     "@typescript-eslint",
-    'react',
+    "react"
   ],
   rules: {
-    "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/indent": ["error", 2],
     "import/prefer-default-export": 0,
     "indent": 0,
     "lines-between-class-members": 0,

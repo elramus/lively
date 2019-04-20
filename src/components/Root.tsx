@@ -12,7 +12,13 @@ import {
   faExternalLinkSquare,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
-  faGithub, faJs, faLinkedinIn, faWordpress,
+  faAdobe,
+  faGithub,
+  faGulp,
+  faJs,
+  faLinkedinIn,
+  faSketch,
+  faWordpress,
 } from '@fortawesome/free-brands-svg-icons'
 import { ThemeProvider } from '../utils/styledComponents'
 import { theme } from '../utils/theme'
@@ -21,14 +27,17 @@ import store from '../store'
 import App from './App'
 
 library.add(
+  faAdobe,
   faAngleDown,
   faEnvelope,
   faExternalLinkSquare,
+  faGulp,
   faGithub,
   faHandSpock,
   faJs,
   faLinkedinIn,
   faLongArrowLeft,
+  faSketch,
   faWrench,
   faWordpress,
 )

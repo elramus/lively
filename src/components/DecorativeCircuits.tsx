@@ -39,7 +39,7 @@ interface State {
   rdyForCircuits: boolean;
 }
 
-class SplashCircuits extends Component<Props, State> {
+class DecorativeCircuits extends Component<Props, State> {
   pathRefs: {
     [key: string]: null | SVGPathElement;
   }
@@ -88,8 +88,16 @@ class SplashCircuits extends Component<Props, State> {
     const { rdyForCircuits } = this.state
     const { measurements } = this.props
     const measuredElements = measurements.elements
+    const aboutLink = measuredElements[UiNames.AboutLink]
+    const aboutPane = measuredElements[UiNames.AboutPane]
+    const contactLink = measuredElements[UiNames.ContactLink]
+    const contactPane = measuredElements[UiNames.ContactPane]
+    const splashPane = measuredElements[UiNames.SplashPane]
+    const workLink = measuredElements[UiNames.WorkLink]
+    const workPane = measuredElements[UiNames.WorkPane]
+    const totalHeight = document.body.scrollHeight
 
-    if (!('splashPane' in measuredElements)) {
+    if (!(UiNames.SplashPane in measuredElements)) {
       return null
     }
 
@@ -159,6 +167,35 @@ class SplashCircuits extends Component<Props, State> {
             r="4"
             fill={theme.circuitPoint}
           />
+
+          {/* bottom of the page circuits */}
+          <path
+            stroke={theme.circuitPath}
+            d={`
+              M 0 ${contactPane.offsetTop - 200}
+              h ${contactPane.width / 10 + contactPane.padding * 2}
+              l ${contactPane.padding} ${contactPane.padding}
+              v 1500
+            `}
+          />
+          <path
+            stroke={theme.circuitPath}
+            d={`
+              M 0 ${contactPane.offsetTop - 200 + contactPane.padding}
+              h ${contactPane.width / 10 + contactPane.padding}
+              l ${contactPane.padding} ${contactPane.padding}
+              v 1500
+            `}
+          />
+          <path
+            stroke={theme.circuitPath}
+            d={`
+              M 0 ${contactPane.offsetTop - 200 + (contactPane.padding * 2)}
+              h ${contactPane.width / 10}
+              l ${contactPane.padding} ${contactPane.padding}
+              v 1500
+            `}
+          />
         </svg>
       </Container>
     )
@@ -173,4 +210,4 @@ const mapStateToProps = (state: AppState) => ({
 export default connect(
   mapStateToProps,
   { reportPath },
-)(SplashCircuits)
+)(DecorativeCircuits)

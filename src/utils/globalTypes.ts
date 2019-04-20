@@ -21,7 +21,7 @@ export interface Project {
   featuredImg: string;
   galleryImgs: string[];
   url?: string;
-  tech?: {
+  tech: {
     img?: string;
     icon?: [IconPrefix, IconName];
     label: string;

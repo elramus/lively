@@ -26,7 +26,7 @@ export function enterProject(
       .to(projectToOpen,
         0.35,
         { ease: Power4.easeOut, x: -projectMeasurements.offsetLeft, y: -projectMeasurements.offsetTop })
-      .call(() => selectProjectDispatch(name)) // show project inner contents
+      .call(() => selectProjectDispatch(name)) // triggers CSSTransition of inner content
       .set(projectToOpen, {
         x: 0, y: 0,
       })
@@ -34,6 +34,7 @@ export function enterProject(
         display: 'none',
       })
       .set(projectGridRef, {
+        // switch the grid to plain 'ol block when showing project inner content
         display: 'block',
       })
       .to({}, (C.ProjectContentsTransition / 1000), {})
@@ -58,6 +59,7 @@ export function exitProject(
 
   if (projectGridRef && projectToClose) {
     selectProjectDispatch(null) // hides project inner contents
+
     showAllProjectsTimeline
       .to({}, (C.ProjectContentsTransition / 1000), {})
       .set(projectGridRef, {

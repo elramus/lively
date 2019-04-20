@@ -16,6 +16,9 @@ export interface Theme {
   ms5: string;
   ms6: string;
   bigBoxShadow: string;
+  md: string;
+  sm: string;
+  xs: string;
 }
 
 export const theme: Theme = {
@@ -45,4 +48,9 @@ export const theme: Theme = {
 
   // Shadows
   bigBoxShadow: '3px 10px 25px rgba(0,0,0,.15)',
+
+  // Breakpoints
+  md: '950px',
+  sm: '767px',
+  xs: '400px',
 }

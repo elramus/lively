@@ -10,7 +10,6 @@ import { AppState } from '../store'
 import { InteractionsState } from '../store/interactions/types'
 import { theme } from '../utils/theme'
 import { reportPath } from '../store/measurements/actions'
-import { navLinkCircuitEntrance } from '../utils/animations'
 
 const Container = styled('div') <{ rdyForCircuits: boolean }>`
   position: absolute;
@@ -40,7 +39,7 @@ interface State {
   rdyForCircuits: boolean;
 }
 
-class NavLinkCircuits extends Component<Props, State> {
+class PaneCircuits extends Component<Props, State> {
   pathRefs: {
     [key: string]: null | SVGPathElement;
   }
@@ -57,15 +56,6 @@ class NavLinkCircuits extends Component<Props, State> {
     setTimeout(() => {
       this.setState({ rdyForCircuits: true })
     }, 500)
-    // setTimeout(() => {
-    //   navLinkCircuitEntrance(this.pathRefs[UiNames.WorkPath])
-    // }, 700)
-    // setTimeout(() => {
-    //   navLinkCircuitEntrance(this.pathRefs[UiNames.AboutPath])
-    // }, 900)
-    // setTimeout(() => {
-    //   navLinkCircuitEntrance(this.pathRefs[UiNames.ContactPath])
-    // }, 1100)
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -111,7 +101,6 @@ class NavLinkCircuits extends Component<Props, State> {
     const workPane = measuredElements[UiNames.WorkPane]
     const workPath = measuredPaths[UiNames.WorkPath]
 
-
     if (Object.keys(measuredElements).length === 0) {
       return <div />
     }
@@ -134,6 +123,7 @@ class NavLinkCircuits extends Component<Props, State> {
               l -${workPane.padding} ${workPane.padding}
               H ${workPane.padding * 3}
               l -${workPane.padding} ${workPane.padding}
+              v 50
             `}
           />
           {workPath && (
@@ -162,7 +152,8 @@ class NavLinkCircuits extends Component<Props, State> {
               V ${aboutPane.offsetTop - aboutPane.padding}
               l -${aboutPane.padding} ${aboutPane.padding}
               H ${aboutPane.padding * 3}
-              l -${aboutPane.padding} -${aboutPane.padding}
+              l -${aboutPane.padding} ${aboutPane.padding}
+              v 100
             `}
           />
           {aboutPath && (
@@ -247,4 +238,4 @@ const mapStateToProps = (state: AppState) => ({
 export default connect(
   mapStateToProps,
   { reportPath },
-)(NavLinkCircuits)
+)(PaneCircuits)

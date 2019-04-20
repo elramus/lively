@@ -7,7 +7,7 @@ import SplashPane from './SplashPane'
 import WorkPane from './WorkPane'
 import AboutPane from './AboutPane'
 import ContactPane from './ContactPane'
-import NavLinkCircuits from './NavLinkCircuits'
+import PaneCircuits from './PaneCircuits'
 import { UiNames } from '../utils/globalTypes'
 import { measureElement } from '../utils/measure'
 import { reportElement } from '../store/measurements/actions'
@@ -15,7 +15,7 @@ import { setVisiblePane } from '../store/interactions/actions'
 import { AppState } from '../store'
 import { MeasurementsState } from '../store/measurements/types'
 import { InteractionsState } from '../store/interactions/types'
-import SplashCircuits from './SplashCircuits'
+import DecorativeCircuits from './DecorativeCircuits'
 import Footer from './Footer'
 
 const Container = styled('div')`
@@ -114,8 +114,8 @@ class App extends Component<Props, {}> {
     return (
       <Container>
 
-        <NavLinkCircuits />
-        <SplashCircuits />
+        <PaneCircuits />
+        <DecorativeCircuits />
 
         <div
           id="splash-pane"

@@ -37,8 +37,13 @@ const ProjectGrid = styled('div')`
   justify-content: center;
   margin: auto;
   grid-template-columns: 250px 250px 250px;
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
+  grid-column-gap: 2em;
+  @media (max-width: ${props => props.theme.md}) {
+    grid-template-columns: 250px 250px;
+  }
+  @media (max-width: ${props => props.theme.sm}) {
+    grid-template-columns: 1fr;
+  }
 `
 const ProjectContainer = styled('div')`
   outline: 0;
