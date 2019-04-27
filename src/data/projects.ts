@@ -66,7 +66,8 @@ const projects: Projects = {
     approach: [
       'Interviewed and ran focus groups with department professors, students, and staff.',
       'Surveyed available tech solutions, presented options to curriculum committee.',
-      'Iterated on the design based on feedback from users and custom event fires in Google Analytics',
+      'Created new and highly customized WordPress theme with JavaScript features such as table of contents built on-the-fly at page load, a page "compass" to show the user where they are in the doc at all times, and robust URL hash changes triggered by both scrolling and by anchor links, allowing for natural use of browser\'s Back button and for deep linking to specific sections.',
+      'Iterated on the design based on feedback from users and custom event fires in Google Analytics.',
     ],
     featuredImg: musicImgs.featured,
     galleryImgs: [musicImgs.one, musicImgs.two, musicImgs.three],
@@ -86,10 +87,10 @@ const projects: Projects = {
   },
   hubsput: {
     name: 'Translate.com for Hubspot',
-    description: "Translate.com's enterprise-level Website Localizer service allows customers to purchase and maintain professional human translations for websites large and small. Translate.com decided to build an integration of their service for the popular CRM platform Hubspot. This integration required a new interface and I helped conduct UX research for this, design UI mockups, and code a static front end ready to hand off to back end developers",
+    description: "Translate.com's enterprise-level Website Localizer service allows customers to purchase and maintain professional human translations for websites large and small. Translate.com decided to build an integration of their service for the popular CRM platform Hubspot. This integration required a new interface and I helped conduct UX research for this, design UI mockups, and then code a static front end ready to hand off to back end developers",
     approach: [
       'Conducted interviews with users and potential customers about their use of Hubspot and their translation requirements.',
-      'Designed sketches and mockups for a customized web app for ordering and managing translations for Hubspot landing pages, social media, and blog posts.',
+      'Designed sketches and mockups for ordering and managing translations for Hubspot landing pages, social media, and blog posts.',
       'Developed designs into cross-browser front-end code using modularized, well-commented HTML, CSS, and JavaScript.',
     ],
     featuredImg: hubspotImgs.featured,
@@ -111,10 +112,11 @@ const projects: Projects = {
   },
   winterlight: {
     name: 'Winter Light',
-    description: 'Winter Light is an award-winning modern-day revisionist Western short film created by writer/director Julian Higgins. The film is an adaptation of a story by James Lee Burke, set in the frozen wilderness of Montana. As the film garnered more attention from festivals and awards, I needed to quickly create a website to showcase the film’s trailer, press coverage, and its cast and crew.',
+    description: 'Winter Light is an award-winning modern-day revisionist Western short film created by writer/director Julian Higgins. The film is an adaptation of a story by James Lee Burke, set in the frozen wilderness of Montana. It garnered much attention from festivals and awards, so the director quickly need a website to showcase the film’s trailer, press coverage, and its cast and crew.',
     approach: [
-      "Worked closely with the film's director to create aesthetics that matched film's tone while still providing a unique look and feel",
-      'Dynamic landing page with prominent call-to-action bringing users to trailer page',
+      "Worked closely with the film's director to create aesthetics that matched the film's tone while still providing a unique look and feel.",
+      'Built a custom WordPress theme that was responsive, cross-browser, and fast.',
+      'Theme features dynamic landing page with prominent call-to-action to bring users to trailer page.',
     ],
     featuredImg: winterlightImgs.featured,
     galleryImgs: [winterlightImgs.one, winterlightImgs.two, winterlightImgs.three],
@@ -138,7 +140,7 @@ const projects: Projects = {
     approach: [
       'Redesigned widget with a more professional esthetic.',
       'Functional and pleasing animations.',
-      'Developed with mobile-friendly CSS and cross-browser vanilla JS.',
+      'Developed with mobile-friendly CSS and cross-browser, light-weight vanilla JS.',
     ],
     featuredImg: localizerImgs.featured,
     galleryImgs: [localizerImgs.one],
