@@ -23,7 +23,6 @@ const Container = styled('div')<{ isSelected: boolean}>`
   }
   @media (max-width: ${props => props.theme.sm}) {
     grid-template-columns: 1fr;
-    /* grid-row-gap: 2em; */
   }
 `
 

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from './styledComponents'
 
 const GlobalStyles = createGlobalStyle`
-  // Global
+  /* global */
   * {
     border: 0;
     padding: 0;
@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
-  // Typography
+  /* Typography */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'pragati narrow', sans-serif;
     font-weight: normal;
@@ -67,7 +67,7 @@ const GlobalStyles = createGlobalStyle`
     color: inherit;
   }
 
-  // Transitions
+  /* Transitions */
   .fade-slide-up-enter {
     opacity: 0;
     transform: translateY(-0.25em);
@@ -107,6 +107,13 @@ const GlobalStyles = createGlobalStyle`
     opacity: 0;
     transform: translateY(0.25em);
     transition: opacity 200ms ease-out, transform 200ms ease-out;
+  }
+
+  /* Mobile */
+  .mobile-hidden {
+    @media(max-width: ${props => props.theme.sm}) {
+      display: none;
+    }
   }
 `
 

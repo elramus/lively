@@ -4,9 +4,18 @@ import styled from '../utils/styledComponents'
 
 const Container = styled('section')`
   padding-bottom: 10em;
+  padding-right: 0;
+  text-align: center;
   .links {
     text-align: center;
     margin-top: 5em;
+    @media (max-width: ${props => props.theme.sm}) {
+      display: flex;
+      justify-content: space-between;
+      max-width: 20em;
+      margin-left: auto;
+      margin-right: auto;
+    }
     a {
       display: inline-flex;
       justify-content: center;
@@ -24,6 +33,14 @@ const Container = styled('section')`
       }
       &:hover, &:focus {
         color: white;
+      }
+      @media(max-width: ${props => props.theme.sm}) {
+        position: relative;
+        top: 0.5em;
+        height: 1.5em;
+        width: 1.5em;
+        margin: 0;
+        padding: 1.5em;
       }
     }
   }

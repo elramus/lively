@@ -16,8 +16,14 @@ const Container = styled('section')`
   height: 100vh;
   text-align: center;
   padding: 0;
+  ul {
+    @media (max-width: ${props => props.theme.sm}) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 `
-const NavItem = styled('li') <{ hoverColor: string }>`
+const NavItem = styled('li')<{ hoverColor: string }>`
   display: inline-block;
   list-style-type: none;
   cursor: pointer;
@@ -26,7 +32,7 @@ const NavItem = styled('li') <{ hoverColor: string }>`
     display: flex;
     align-items: center;
     font-family: 'pragati narrow', sans-serif;
-    padding: 0 1.5em;
+    padding: 0 1em;
     font-size: ${props => props.theme.ms3};
     transition: transform 150ms ease-out;
     .linkIcon {

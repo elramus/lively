@@ -11,7 +11,7 @@ import { InteractionsState } from '../store/interactions/types'
 import { theme } from '../utils/theme'
 import { reportPath } from '../store/measurements/actions'
 
-const Container = styled('div') <{ rdyForCircuits: boolean }>`
+const Container = styled('div')<{ rdyForCircuits: boolean }>`
   position: absolute;
   top: 0;
   right: 0;
@@ -88,14 +88,7 @@ class DecorativeCircuits extends Component<Props, State> {
     const { rdyForCircuits } = this.state
     const { measurements } = this.props
     const measuredElements = measurements.elements
-    const aboutLink = measuredElements[UiNames.AboutLink]
-    const aboutPane = measuredElements[UiNames.AboutPane]
-    const contactLink = measuredElements[UiNames.ContactLink]
     const contactPane = measuredElements[UiNames.ContactPane]
-    const splashPane = measuredElements[UiNames.SplashPane]
-    const workLink = measuredElements[UiNames.WorkLink]
-    const workPane = measuredElements[UiNames.WorkPane]
-    const totalHeight = document.body.scrollHeight
 
     if (!(UiNames.SplashPane in measuredElements)) {
       return null
@@ -168,8 +161,9 @@ class DecorativeCircuits extends Component<Props, State> {
             fill={theme.circuitPoint}
           />
 
-          {/* bottom of the page circuits */}
+          {/* bottom of the page circuits. Hide them on mobile. */}
           <path
+            className="mobile-hidden"
             stroke={theme.circuitPath}
             d={`
               M 0 ${contactPane.offsetTop - 200}
@@ -179,6 +173,7 @@ class DecorativeCircuits extends Component<Props, State> {
             `}
           />
           <path
+            className="mobile-hidden"
             stroke={theme.circuitPath}
             d={`
               M 0 ${contactPane.offsetTop - 200 + contactPane.padding}
@@ -188,6 +183,7 @@ class DecorativeCircuits extends Component<Props, State> {
             `}
           />
           <path
+            className="mobile-hidden"
             stroke={theme.circuitPath}
             d={`
               M 0 ${contactPane.offsetTop - 200 + (contactPane.padding * 2)}

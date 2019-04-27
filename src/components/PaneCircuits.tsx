@@ -11,7 +11,7 @@ import { InteractionsState } from '../store/interactions/types'
 import { theme } from '../utils/theme'
 import { reportPath } from '../store/measurements/actions'
 
-const Container = styled('div') <{ rdyForCircuits: boolean }>`
+const Container = styled('div')<{ rdyForCircuits: boolean }>`
   position: absolute;
   top: 0;
   right: 0;
@@ -181,7 +181,7 @@ class PaneCircuits extends Component<Props, State> {
               H ${splashPane.width - splashPane.padding}
               V ${contactPane.offsetTop}
               l -${contactPane.padding} ${contactPane.padding}
-              H ${(contactPane.width / 2)}
+              H ${(contactPane.width / 2) + contactPane.padding}
               l -${contactPane.padding} ${contactPane.padding}
               v 110
               h 150

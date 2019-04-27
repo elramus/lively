@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '../utils/styledComponents'
 import headshot from '../media/luke-headshot.jpg'
 import toolbox from '../media/tools-vertical.png'
 import PaneHeadline from './PaneHeadline'
@@ -12,9 +12,18 @@ const Container = styled('section')`
     max-width: 43em;
     justify-content: center;
     margin: 0 auto 7em auto;
+    @media(max-width: ${props => props.theme.sm}) {
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto 1em auto;
+    }
     p {
       margin-bottom: 1em;
       padding-right: 3em;
+      @media(max-width: ${props => props.theme.sm}) {
+        order: 2;
+        padding-right: 0;
+      }
     }
     .headshot {
       flex: 0 0 13em;
@@ -25,6 +34,14 @@ const Container = styled('section')`
       background-position: 0 -1.5em;
       box-shadow: ${props => props.theme.bigBoxShadow};
       border-radius: 10px;
+      @media(max-width: ${props => props.theme.sm}) {
+        flex: 0 0 11em;
+        order: 1;
+        margin-bottom: 2em;
+        width: 10em;
+        height: auto;
+        background-position: center;
+      }
     }
   }
   .tools-skills {
@@ -33,6 +50,9 @@ const Container = styled('section')`
     align-items: flex-start;
     max-width: 60em;
     margin: auto;
+    @media(max-width: ${props => props.theme.sm}) {
+      flex-direction: column;
+    }
     ul {
       flex: 0 1 50%;
       padding-top: 2.5em;
@@ -58,9 +78,7 @@ const AboutPane = () => (
   <Container>
     <PaneHeadline text="Striving for practical and approachable design solutions" />
     <div className="blurb">
-      <div>
-        <p>I’m Luke Ramus and I’m a front-end web developer and user interface designer. I get my kicks from creating interfaces that magically wrestle complexity into delightful simplicity. <strong>But really I just love making great tools for people so they can work smarter.</strong></p>
-      </div>
+      <p>I’m Luke Ramus and I’m a front-end web developer and user interface designer. I get my kicks from creating interfaces that magically wrestle complexity into delightful simplicity. <strong>But really I just love making great tools for people so they can work smarter.</strong></p>
       <div className="headshot" />
     </div>
     <div className="tools-skills">

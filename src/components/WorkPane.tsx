@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import styled from 'styled-components'
 import { CSSTransition } from 'react-transition-group'
+import styled from '../utils/styledComponents'
 import projects from '../data/projects'
 import SingleProject from './SingleProject'
 import { enterProject, exitProject } from '../utils/animations'
@@ -29,6 +29,9 @@ const GridContainer = styled('div')`
   .text-button {
     position: absolute;
     top: -3.7em;
+  }
+  @media(max-width: ${props => props.theme.sm}) {
+    padding-left: 1em;
   }
 `
 const ProjectGrid = styled('div')`
