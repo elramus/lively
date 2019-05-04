@@ -1,8 +1,9 @@
 import React from 'react'
 import ImageZoom from 'react-medium-image-zoom'
-import styled from '../utils/styledComponents'
-import { Project } from '../utils/globalTypes'
-import { theme } from '../utils/theme'
+
+import { Project } from '../../utils/globalTypes'
+import styled from '../../utils/styledComponents'
+import { theme } from '../../utils/theme'
 
 const Container = styled('div')`
   @media(max-width: ${props => props.theme.md}) {
@@ -16,6 +17,11 @@ const Container = styled('div')`
   img {
     box-shadow: ${props => props.theme.bigBoxShadow};
     margin-bottom: 1em;
+    opacity: 0.9;
+    transition: opacity 150ms ease-out;
+    &:hover {
+      opacity: 1;
+    }
   }
 `
 

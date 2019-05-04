@@ -1,29 +1,22 @@
-import React from 'react'
-import { Provider } from 'react-redux'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+ faAdobe, faGithub, faGulp, faJs, faLinkedin, faSketch, faWordpress 
+} from '@fortawesome/free-brands-svg-icons'
 import {
   faAngleDown,
   faEnvelope,
-  faHandSpock,
-  faWrench,
-  faLongArrowLeft,
-} from '@fortawesome/pro-regular-svg-icons'
-import {
   faExternalLinkSquare,
-} from '@fortawesome/pro-solid-svg-icons'
-import {
-  faAdobe,
-  faGithub,
-  faGulp,
-  faJs,
-  faLinkedinIn,
-  faSketch,
-  faWordpress,
-} from '@fortawesome/free-brands-svg-icons'
+  faHandSpock,
+  faLongArrowLeft,
+  faWrench,
+} from '@fortawesome/pro-regular-svg-icons'
+import React from 'react'
+import { Provider } from 'react-redux'
+
+import store from '../store'
+import GlobalStyles from '../utils/globalStyles'
 import { ThemeProvider } from '../utils/styledComponents'
 import { theme } from '../utils/theme'
-import GlobalStyles from '../utils/globalStyles'
-import store from '../store'
 import App from './App'
 
 library.add(
@@ -35,7 +28,7 @@ library.add(
   faGithub,
   faHandSpock,
   faJs,
-  faLinkedinIn,
+  faLinkedin,
   faLongArrowLeft,
   faSketch,
   faWrench,

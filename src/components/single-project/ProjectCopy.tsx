@@ -1,10 +1,9 @@
 import React from 'react'
-import styled from '../utils/styledComponents'
-import { Project } from '../utils/globalTypes'
+
+import { Project } from '../../utils/globalTypes'
+import styled from '../../utils/styledComponents'
 
 const Container = styled('div')`
-  /* flex: 0 1 50%; */
-  /* padding: 0 2em; */
   h1 {
     margin-top: 0;
   }
@@ -29,7 +28,9 @@ const ProjectCopy = ({ project }: Props) => (
         <h3 style={{ marginTop: '2em' }}>Approach:</h3>
         <ul>
           {project.approach.map(task => (
-            <li key={task}>{task}</li>
+            <li key={task}>
+              <p>{task}</p>
+            </li>
           ))}
         </ul>
       </>

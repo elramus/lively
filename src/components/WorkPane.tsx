@@ -1,38 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
-import styled from '../utils/styledComponents'
+
 import projects from '../data/projects'
-import SingleProject from './SingleProject'
-import { enterProject, exitProject } from '../utils/animations'
-import C from '../utils/constants'
-import TextButton from './TextButton'
-import PaneHeadline from './PaneHeadline'
 import { AppState } from '../store'
 import { selectProject } from '../store/interactions/actions'
 import { InteractionsState } from '../store/interactions/types'
 import { MeasurementsState } from '../store/measurements/types'
+import { enterProject, exitProject } from '../utils/animations'
+import C from '../utils/constants'
+import styled from '../utils/styledComponents'
+import AllProjectsButton from './single-project/AllProjectsButton'
+import SingleProject from './single-project/SingleProject'
 
 const Container = styled('section')`
+  position:relative;
+  margin-top: 6em;
   min-height: 90vh;
-`
-/**
- * An inner container is necessary because we need to give some addition left padding to
- * project grid, but it can't actually be on it because offsetLeft measurements don't
- * include padding. That leads to a jump between where a project is animated to and where
- * it snaps to once grid switches to block.
- */
-const GridContainer = styled('div')`
-  position: relative;
-  padding-left: 2.25em; /* use these to adjust the sides of the expanded project */
-  padding-right: 1em;
-  .text-button {
-    position: absolute;
-    top: -3.7em;
-  }
-  @media(max-width: ${props => props.theme.sm}) {
-    padding-left: 1em;
-  }
 `
 const ProjectGrid = styled('div')`
   position: relative;
@@ -52,27 +36,23 @@ const ProjectContainer = styled('div')`
   outline: 0;
 `
 
-interface OwnProps {
-  measurePanes: Function;
-}
-interface ConnectedProps {
+interface Props {
   selectProject: typeof selectProject;
   interactions: InteractionsState;
   measurements: MeasurementsState;
 }
-type WorkPaneProps = OwnProps & ConnectedProps
 
 interface State {
   galleryImgsLoadedCount: number;
 }
 
-class WorkPane extends Component<WorkPaneProps, State> {
+class WorkPane extends Component<Props, State> {
   projectGridRef: null | HTMLDivElement;
   projectRefs: {
     [key: string]: null | HTMLDivElement;
   }
 
-  constructor(props: WorkPaneProps) {
+  constructor(props: Props) {
     super(props)
     this.projectRefs = {}
     this.projectGridRef = null
@@ -80,7 +60,7 @@ class WorkPane extends Component<WorkPaneProps, State> {
 
   handleProjectClick = (name: string) => {
     const {
-      interactions, measurements, selectProject, measurePanes,
+      interactions, measurements, selectProject,
     } = this.props
     const { selectedProject } = interactions
     const measuredProjects = measurements.projects
@@ -91,7 +71,6 @@ class WorkPane extends Component<WorkPaneProps, State> {
         measuredProjects,
         this.projectGridRef,
         selectProject,
-        measurePanes,
       )
     }
   }
@@ -102,7 +81,7 @@ class WorkPane extends Component<WorkPaneProps, State> {
 
   handleAllProjectsClick = () => {
     const {
-      interactions, measurements, selectProject, measurePanes,
+      interactions, measurements, selectProject,
     } = this.props
     const { selectedProject } = interactions
     const measuredProjects = measurements.projects
@@ -113,7 +92,6 @@ class WorkPane extends Component<WorkPaneProps, State> {
         measuredProjects,
         this.projectGridRef,
         selectProject,
-        measurePanes,
       )
     }
   }
@@ -126,36 +104,29 @@ class WorkPane extends Component<WorkPaneProps, State> {
 
     return (
       <Container>
-        <PaneHeadline text="Here are some projects I've had the opportunity to work on recently" />
-        <GridContainer>
-          <CSSTransition
-            mountOnEnter
-            in={selectedProject !== null}
-            timeout={C.ProjectContentsTransition}
-            classNames="fade-slide-down"
-            unmountOnExit
-          >
-            <TextButton
-              onClick={() => this.handleAllProjectsClick()}
-              icon={['far', 'long-arrow-left']}
-              text="All Projects"
-            />
-          </CSSTransition>
-          <ProjectGrid ref={div => this.projectGridRef = div}>
-            {Object.keys(projects).map(name => (
-              <ProjectContainer
-                key={name}
-                onClick={() => this.handleProjectClick(name)}
-                onKeyPress={() => this.handleProjectKeyPress(name)}
-                ref={div => this.projectRefs[name] = div}
-                tabIndex={selectedProject === name ? undefined : 0}
-                role="button"
-              >
-                <SingleProject name={name} isSelected={selectedProject === name} />
-              </ProjectContainer>
-            ))}
-          </ProjectGrid>
-        </GridContainer>
+        <CSSTransition
+          mountOnEnter
+          in={selectedProject !== null}
+          timeout={C.ProjectContentsTransition}
+          classNames="fade-slide-down"
+          unmountOnExit
+        >
+          <AllProjectsButton clickHandler={() => this.handleAllProjectsClick()} />
+        </CSSTransition>
+        <ProjectGrid ref={div => this.projectGridRef = div}>
+          {Object.keys(projects).map(name => (
+            <ProjectContainer
+              key={name}
+              onClick={() => this.handleProjectClick(name)}
+              onKeyPress={() => this.handleProjectKeyPress(name)}
+              ref={div => this.projectRefs[name] = div}
+              tabIndex={selectedProject === name ? undefined : 0}
+              role="button"
+            >
+              <SingleProject name={name} isSelected={selectedProject === name} />
+            </ProjectContainer>
+          ))}
+        </ProjectGrid>
       </Container>
     )
   }

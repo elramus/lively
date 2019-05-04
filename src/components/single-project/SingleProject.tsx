@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
-import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
-import styled from '../utils/styledComponents'
-import projects from '../data/projects'
-import C from '../utils/constants'
-import { measureElement } from '../utils/measure'
-import ProjectSidebar from './ProjectSidebar'
-import { MeasurementsState } from '../store/measurements/types'
-import { reportProject } from '../store/measurements/actions'
-import { AppState } from '../store'
-import ProjectGallery from './ProjectGallery'
-import ProjectCopy from './ProjectCopy'
+import { CSSTransition } from 'react-transition-group'
 
-const Container = styled('div')<{ isSelected: boolean}>`
+import projects from '../../data/projects'
+import { AppState } from '../../store'
+import { reportProject } from '../../store/measurements/actions'
+import { MeasurementsState } from '../../store/measurements/types'
+import C from '../../utils/constants'
+import { measureElement } from '../../utils/measure'
+import styled from '../../utils/styledComponents'
+import ProjectCopy from './ProjectCopy'
+import ProjectGallery from './ProjectGallery'
+import ProjectSidebar from './ProjectSidebar'
+
+const Container = styled('div')<{ isSelected: boolean }>`
   position: relative;
   display: grid;
-  grid-template-columns: 250px 1fr 250px;
-  grid-column-gap: 2em;
+  grid-template-columns: 250px 1fr 400px;
+  grid-column-gap: 3em;
   @media (max-width: ${props => props.theme.md}) {
     grid-template-columns: 250px 1fr;
     grid-row-gap: 2em;
@@ -48,15 +49,6 @@ class SingleProject extends Component<Props, State> {
     }
   }
 
-  // componentDidUpdate() {
-  //   const { galleryImgsRdy, galleryImgsLoaded } = this.state
-  //   const { name } = this.props
-  //   const project = projects[name]
-  //   if (!galleryImgsRdy && galleryImgsLoaded >= project.galleryImgs.length) {
-  //     this.setState({ galleryImgsRdy: true })
-  //   }
-  // }
-
   measureProjectTile = () => {
     const { reportProject, name } = this.props
     const measurements = measureElement(this.projectRef)
@@ -80,7 +72,7 @@ class SingleProject extends Component<Props, State> {
     this.projectRef = el
   }
 
-  private projectRef: HTMLDivElement | null;
+  projectRef: HTMLDivElement | null;
 
   render() {
     const { name, isSelected, measurements } = this.props
