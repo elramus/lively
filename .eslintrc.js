@@ -33,6 +33,7 @@ module.exports = {
     "max-len": 0,
     "no-return-assign": 0,
     "no-shadow": 0,
+    "object-curly-newline": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
     "react/jsx-indent": 0,
     "react/jsx-one-expression-per-line": 0,

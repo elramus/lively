@@ -10,10 +10,21 @@ const Container = styled('div')`
   align-items: center;
   padding: 2em 0;
   margin: 0 auto;
+  @media (max-width: ${props => props.theme.sm}) {
+    flex-direction: column;
+    >div {
+      margin-bottom: 2em;
+    }
+  }
   .left {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    @media (max-width: ${props => props.theme.sm}) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   }
   .headshot {
     display: inline-block;
@@ -23,6 +34,9 @@ const Container = styled('div')`
     border-radius: 100%;
     background-image: url(${me});
     background-size: cover;
+    @media (max-width: ${props => props.theme.sm}) {
+      margin: 0 0 2em 0;
+    }
   }
   h1 {
     letter-spacing: 1px;

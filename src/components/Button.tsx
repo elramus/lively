@@ -1,6 +1,7 @@
-import React from 'react'
+import { IconName, IconPrefix } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconPrefix, IconName } from '@fortawesome/pro-light-svg-icons'
+import React from 'react'
+
 import styled from '../utils/styledComponents'
 
 interface Props {

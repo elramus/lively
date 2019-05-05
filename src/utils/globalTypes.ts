@@ -1,4 +1,4 @@
-import { IconPrefix, IconName } from '@fortawesome/pro-solid-svg-icons'
+import { IconName, IconPrefix } from '@fortawesome/pro-solid-svg-icons'
 
 export enum UiNames {
   AboutLink = 'aboutLink',
@@ -19,7 +19,8 @@ export interface Project {
   description: string;
   approach: string[];
   featuredImg: string;
-  galleryImgs: string[];
+  galleryImgsSm: string[];
+  galleryImgsLg?: string[];
   url?: string;
   tech: {
     img?: string;

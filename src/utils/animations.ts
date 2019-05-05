@@ -1,6 +1,6 @@
-import { TimelineLite, Power4 } from 'gsap'
+import { Back, Power4, TimelineLite } from 'gsap'
+
 import C from './constants'
-import { theme } from './theme'
 import { ElMeasurements } from './globalTypes'
 
 export function enterProject(
@@ -9,7 +9,6 @@ export function enterProject(
   measuredProjects: { [key: string]: ElMeasurements },
   projectGridRef: null | HTMLDivElement,
   selectProjectDispatch: Function,
-  measurePanes: Function,
 ) {
   const projectMeasurements = measuredProjects[name]
   const selectProjectTimeline = new TimelineLite()
@@ -20,12 +19,13 @@ export function enterProject(
 
   if (projectToOpen && projectGridRef) {
     selectProjectTimeline
-      .to(projectsToHide,
+      .staggerTo(projectsToHide,
         0.15,
-        { ease: Power4.easeOut, opacity: 0, y: 20 })
+        { ease: Power4.easeOut, opacity: 0, y: 20 },
+        0.02)
       .to(projectToOpen,
         0.35,
-        { ease: Power4.easeOut, x: -projectMeasurements.offsetLeft, y: -projectMeasurements.offsetTop })
+        { ease: Back.easeInOut.config(0.5), x: -projectMeasurements.offsetLeft, y: -projectMeasurements.offsetTop })
       .call(() => selectProjectDispatch(name)) // triggers CSSTransition of inner content
       .set(projectToOpen, {
         x: 0, y: 0,
@@ -38,7 +38,6 @@ export function enterProject(
         display: 'block',
       })
       .to({}, (C.ProjectContentsTransition / 1000), {})
-      .call(() => measurePanes())
   }
 }
 
@@ -48,7 +47,6 @@ export function exitProject(
   measuredProjects: { [key: string]: ElMeasurements },
   projectGridRef: null | HTMLDivElement,
   selectProjectDispatch: Function,
-  measurePanes: Function,
 ) {
   const projectMeasurements = measuredProjects[selectedProject]
   const showAllProjectsTimeline = new TimelineLite()
@@ -73,66 +71,10 @@ export function exitProject(
       })
       .to(projectToClose,
         0.35,
-        { x: 0, y: 0 })
-      .to(projectsToReveal,
-        0.15,
-        { opacity: 1, y: 0 })
-      .call(() => measurePanes())
-  }
-}
-
-export function headlineCircuitEntrance(line: HTMLDivElement) {
-  const sizeTimeline = new TimelineLite()
-  sizeTimeline
-    .to(line, 3, {
-      width: '100%',
-    })
-}
-
-export function navLinkCircuitEntrance(line: SVGPathElement | null) {
-  if (line) {
-    const colorTimeline = new TimelineLite()
-    colorTimeline
-      .to(line, 0.25, {
-        stroke: 'white',
-      })
-      .to(line, 0.25, {
-        stroke: theme.red,
-      })
-      .to(line, 0.25, {
-        stroke: theme.green,
-      })
-      .to(line, 0.25, {
-        stroke: theme.blue,
-      })
-      .to(line, 0.25, {
-        stroke: theme.lightGray,
-      })
-      .to(line, 0.25, {
-        stroke: theme.red,
-      })
-      .to(line, 0.25, {
-        stroke: theme.green,
-      })
-      .to(line, 0.25, {
-        stroke: theme.blue,
-      })
-      .to(line, 0.25, {
-        stroke: theme.red,
-      })
-      .to(line, 0.25, {
-        stroke: theme.green,
-      })
-      .to(line, 0.25, {
-        stroke: theme.blue,
-      })
-      .to(line, 0.25, {
-        stroke: theme.circuitPath,
-      })
-      .call(() => {
-        // Remove in the inline style property so we can still use the dynamic
-        // stroke property originally assigned.
-        line.style.removeProperty('stroke')
-      })
+        { ease: Back.easeInOut.config(0.5), x: 0, y: 0 })
+      .staggerTo(projectsToReveal,
+        0.25,
+        { opacity: 1, y: 0 },
+        0.05)
   }
 }

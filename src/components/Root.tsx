@@ -1,6 +1,12 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
- faAdobe, faGithub, faGulp, faJs, faLinkedin, faSketch, faWordpress 
+  faAdobe,
+  faGithub,
+  faGulp,
+  faJs,
+  faLinkedin,
+  faSketch,
+  faWordpress,
 } from '@fortawesome/free-brands-svg-icons'
 import {
   faAngleDown,
@@ -38,10 +44,10 @@ library.add(
 const Root = () => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-      <div>
+      <>
         <GlobalStyles />
         <App />
-      </div>
+      </>
     </ThemeProvider>
   </Provider>
 )

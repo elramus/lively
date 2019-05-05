@@ -7,7 +7,7 @@ const Container = styled('footer')`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2em 0;
+  padding: 4em 0 1em 0;
   p {
     font-family: ${props => props.theme.headingFont};
     font-size: ${props => props.theme.ms6};

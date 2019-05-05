@@ -1,3 +1,4 @@
+import asfaltLight from '../media/asfalt-light.png'
 import { createGlobalStyle } from './styledComponents'
 
 const GlobalStyles = createGlobalStyle`
@@ -9,19 +10,15 @@ const GlobalStyles = createGlobalStyle`
   }
   html, body {
     box-sizing: border-box;
-    background-color: ${props => props.theme.darkBlue};
+    background: rgb(2,0,36);
+    background-image: url(${asfaltLight}), linear-gradient(165deg, rgba(2,0,36,1) 30%, rgba(0,71,59,1) 100%);
+    background-attachment: fixed;
   }
   body {
-    font-size: 16px;
-    font-weight: 300;
-    font-family: 'libre franklin', sans-serif;
-    color: ${props => props.theme.offWhite};
+    font-size: 15px;
+    font-family: ${props => props.theme.paragraphFont};
+    color: white;
     line-height: 1.75;
-  }
-  section {
-    position: relative;
-    z-index: 10;
-    padding: 0 2em 4em 0;
   }
   img {
     max-width: 100%;
@@ -32,9 +29,10 @@ const GlobalStyles = createGlobalStyle`
 
   /* Typography */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'pragati narrow', sans-serif;
+    font-family: ${props => props.theme.headingFont};
     font-weight: normal;
     line-height: 1;
+    opacity: .9;
   }
   h1 {
     font-size: ${props => props.theme.ms1};
@@ -47,14 +45,20 @@ const GlobalStyles = createGlobalStyle`
   }
   h4 {
     font-size: ${props => props.theme.ms4};
-    font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 1.4px;
   }
   h5 {
     font-size: ${props => props.theme.ms5};
+    text-transform: uppercase;
   }
   h6 {
     font-size: ${props => props.theme.ms6};
+  }
+  p {
+    line-height: 1.95;
+    letter-spacing: .2px;
+    opacity: .9;
   }
   a {
     text-decoration: none;

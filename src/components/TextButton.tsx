@@ -1,10 +1,10 @@
-import React from 'react'
+import { IconName, IconPrefix } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconPrefix, IconName } from '@fortawesome/pro-light-svg-icons'
+import React from 'react'
+
 import styled from '../utils/styledComponents'
 
 const Button = styled('button')`
-  /* text-transform: uppercase; */
   font-family: 'pragati narrow', sans-serif;
   font-size: ${props => props.theme.ms3};
   color: ${props => props.theme.offWhite};

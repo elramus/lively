@@ -1,16 +1,7 @@
-import {
-  SELECT_PROJECT,
-  InteractionsActions,
-  InteractionsState,
-  SET_HOVERED_NAV_LINK,
-  SET_VISIBLE_PANE,
-} from './types'
-import { UiNames } from '../../utils/globalTypes'
+import { InteractionsActions, InteractionsState, SELECT_PROJECT } from './types'
 
 export const initialInteractionsState: InteractionsState = {
   selectedProject: null,
-  hoveredNavLink: null,
-  visiblePane: UiNames.SplashPane,
 }
 
 const interactions = (
@@ -22,16 +13,6 @@ const interactions = (
       return {
         ...state,
         selectedProject: action.name,
-      }
-    case SET_HOVERED_NAV_LINK:
-      return {
-        ...state,
-        hoveredNavLink: action.name,
-      }
-    case SET_VISIBLE_PANE:
-      return {
-        ...state,
-        visiblePane: action.name,
       }
     default:
       return state

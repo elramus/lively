@@ -8,6 +8,9 @@ const Container = styled('ul')`
   li {
     list-style-type: none;
     margin-left: 0.5em;
+    &:first-child {
+      margin-left: 0;
+    }
     a {
       display: flex;
       align-items: center;

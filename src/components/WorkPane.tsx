@@ -97,9 +97,7 @@ class WorkPane extends Component<Props, State> {
   }
 
   render() {
-    const {
-      interactions,
-    } = this.props
+    const { interactions } = this.props
     const { selectedProject } = interactions
 
     return (

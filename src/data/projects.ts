@@ -1,7 +1,7 @@
 import * as haneyImgs from '../media/projects/haney'
-import * as mmufImgs from '../media/projects/mmuf'
-import * as localizerImgs from '../media/projects/localizer'
 import * as hubspotImgs from '../media/projects/hubspot'
+import * as localizerImgs from '../media/projects/localizer'
+import * as mmufImgs from '../media/projects/mmuf'
 import * as musicImgs from '../media/projects/music'
 import * as winterlightImgs from '../media/projects/winterlight'
 import { Projects } from '../utils/globalTypes'
@@ -16,7 +16,16 @@ const projects: Projects = {
       'Satisfying flutter-in animation of  elements throughout site using GreenSock Animation Platform.',
     ],
     featuredImg: haneyImgs.featured,
-    galleryImgs: [haneyImgs.one, haneyImgs.two, haneyImgs.three],
+    galleryImgsSm: [
+      haneyImgs.oneSm,
+      haneyImgs.twoSm,
+      haneyImgs.threeSm,
+    ],
+    galleryImgsLg: [
+      haneyImgs.oneLg,
+      haneyImgs.twoLg,
+      haneyImgs.threeLg,
+    ],
     url: 'http://www.bryanhaney.com',
     tech: [
       {
@@ -45,7 +54,16 @@ const projects: Projects = {
       'Theme supports features such as events calendar, staff profile custom post types, blog-style news feed.',
     ],
     featuredImg: mmufImgs.featured,
-    galleryImgs: [mmufImgs.one, mmufImgs.two, mmufImgs.three],
+    galleryImgsSm: [
+      mmufImgs.oneSm,
+      mmufImgs.twoSm,
+      mmufImgs.threeSm,
+    ],
+    galleryImgsLg: [
+      mmufImgs.oneLg,
+      mmufImgs.twoLg,
+      mmufImgs.threeLg,
+    ],
     url: 'https://mellonmays.uchicago.edu',
     tech: [
       {
@@ -70,7 +88,16 @@ const projects: Projects = {
       'Iterated on the design based on feedback from users and custom event fires in Google Analytics.',
     ],
     featuredImg: musicImgs.featured,
-    galleryImgs: [musicImgs.one, musicImgs.two, musicImgs.three],
+    galleryImgsSm: [
+      musicImgs.oneSm,
+      musicImgs.twoSm,
+      musicImgs.threeSm,
+    ],
+    galleryImgsLg: [
+      musicImgs.oneLg,
+      musicImgs.twoLg,
+      musicImgs.threeLg,
+    ],
     url: 'https://lucian.uchicago.edu/blogs/musiccurriculum/',
     tech: [
       {
@@ -94,11 +121,17 @@ const projects: Projects = {
       'Developed designs into cross-browser front-end code using modularized, well-commented HTML, CSS, and JavaScript.',
     ],
     featuredImg: hubspotImgs.featured,
-    galleryImgs: [
-      hubspotImgs.one,
-      hubspotImgs.two,
-      hubspotImgs.three,
-      hubspotImgs.four,
+    galleryImgsSm: [
+      hubspotImgs.oneSm,
+      hubspotImgs.twoSm,
+      hubspotImgs.threeSm,
+      hubspotImgs.fourSm,
+    ],
+    galleryImgsLg: [
+      hubspotImgs.oneLg,
+      hubspotImgs.twoLg,
+      hubspotImgs.threeLg,
+      hubspotImgs.fourLg,
     ],
     tech: [
       {
@@ -119,7 +152,16 @@ const projects: Projects = {
       'Theme features dynamic landing page with prominent call-to-action to bring users to trailer page.',
     ],
     featuredImg: winterlightImgs.featured,
-    galleryImgs: [winterlightImgs.one, winterlightImgs.two, winterlightImgs.three],
+    galleryImgsSm: [
+      winterlightImgs.oneSm,
+      winterlightImgs.twoSm,
+      winterlightImgs.threeSm,
+    ],
+    galleryImgsLg: [
+      winterlightImgs.oneLg,
+      winterlightImgs.twoLg,
+      winterlightImgs.threeLg,
+    ],
     url: 'http://www.winterlightfilm.com',
     tech: [
       {
@@ -143,7 +185,9 @@ const projects: Projects = {
       'Developed with mobile-friendly CSS and cross-browser, light-weight vanilla JS.',
     ],
     featuredImg: localizerImgs.featured,
-    galleryImgs: [localizerImgs.one],
+    galleryImgsSm: [
+      localizerImgs.one,
+    ],
     tech: [
       {
         icon: ['fab', 'js'],

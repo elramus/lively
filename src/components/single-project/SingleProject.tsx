@@ -34,19 +34,19 @@ interface Props {
   reportProject: typeof reportProject;
 }
 
-interface State {
-  galleryImgsRdy: boolean;
-  galleryImgsLoaded: number;
-}
 
-class SingleProject extends Component<Props, State> {
+class SingleProject extends Component<Props> {
   constructor(props: Props) {
     super(props)
     this.projectRef = null
-    this.state = {
-      galleryImgsRdy: false,
-      galleryImgsLoaded: 0,
-    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.measureProjectTile)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.measureProjectTile)
   }
 
   measureProjectTile = () => {
@@ -57,15 +57,6 @@ class SingleProject extends Component<Props, State> {
 
   handleFtrImgLoad = () => {
     this.measureProjectTile()
-  }
-
-  handleGalleryImgLoad = () => {
-    const { galleryImgsRdy } = this.state
-    if (!galleryImgsRdy) {
-      this.setState(prevState => ({
-        galleryImgsLoaded: prevState.galleryImgsLoaded + 1,
-      }))
-    }
   }
 
   setProjectRef = (el: HTMLDivElement) => {
@@ -82,12 +73,12 @@ class SingleProject extends Component<Props, State> {
     const project = projects[name]
 
     return (
-      <Container ref={this.setProjectRef} isSelected={isSelected}>
+      <Container ref={this.setProjectRef} isSelected={isSelected} className="project-container">
         <ProjectSidebar
+          project={project}
           imgWidth={imgWidth}
           imgHeight={imgHeight}
           isSelected={isSelected}
-          project={project}
           handleFtrImgLoad={this.handleFtrImgLoad}
         />
 

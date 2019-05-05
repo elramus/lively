@@ -1,27 +1,7 @@
-export interface Theme {
-  darkGray: string;
-  middleGray: string;
-  lightGray: string;
-  offWhite: string;
-  red: string;
-  blue: string;
-  darkBlue: string;
-  circuitPath: string;
-  circuitPoint: string;
-  green: string;
-  ms1: string;
-  ms2: string;
-  ms3: string;
-  ms4: string;
-  ms5: string;
-  ms6: string;
-  bigBoxShadow: string;
-  md: string;
-  sm: string;
-  xs: string;
-}
+export const theme = {
+  // Structure
+  globalMaxWidth: '90em',
 
-export const theme: Theme = {
   // Grays
   darkGray: '#525252',
   middleGray: '#9B9B9B',
@@ -29,14 +9,17 @@ export const theme: Theme = {
   offWhite: '#cfd7ff',
 
   // Colors
-  darkBlue: '#000729',
-  red: '#FE9A75',
+  darkBlue: '#060022',
   blue: '#99d4ff',
+  red: '#FE9A75',
   green: '#9EE681',
 
   // UI Color Choices
-  circuitPath: '#202971',
-  circuitPoint: '#202971',
+  primaryAccent: () => theme.green,
+
+  // Fonts
+  headingFont: 'Josefin Sans, sans-serif',
+  paragraphFont: 'Libre Franklin, sans-serif',
 
   // Modular scale font sizes
   ms1: '2.24em',
@@ -54,3 +37,5 @@ export const theme: Theme = {
   sm: '767px',
   xs: '400px',
 }
+
+export type Theme = typeof theme;

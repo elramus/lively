@@ -6,6 +6,9 @@ import styled from '../../utils/styledComponents'
 import { theme } from '../../utils/theme'
 
 const Container = styled('div')`
+  max-width: 400px; /* same as its column width in SingleProject */
+  margin-left: auto;
+  margin-right: auto;
   @media(max-width: ${props => props.theme.md}) {
     grid-column-start: span 2;
     text-align: center;
@@ -34,11 +37,15 @@ const ProjectGallery = ({
   project,
 }: Props) => (
   <Container>
-    {project.galleryImgs.map((image, i) => (
+    {project.galleryImgsSm.map((image, i) => (
       <ImageZoom
         key={image}
         image={{
           src: image,
+          alt: `${project.name} gallery ${i}`,
+        }}
+        zoomImage={{
+          src: project.galleryImgsLg ? project.galleryImgsLg[i] : image,
           alt: `${project.name} gallery ${i}`,
         }}
         defaultStyles={{
