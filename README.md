@@ -1,1 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 👋 Lively
+
+## Portfolio website for me!
+This project is a React/Redux/Typescript app, bootstrapped with Create React App.
