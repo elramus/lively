@@ -4,10 +4,11 @@ import { CSSTransition } from 'react-transition-group'
 
 import projects from '../data/projects'
 import { AppState } from '../store'
-import { selectProject } from '../store/interactions/actions'
-import { InteractionsState } from '../store/interactions/types'
+import { FeatImgsLoadedState } from '../store/featImgsLoaded/types'
 import { MeasurementsState } from '../store/measurements/types'
-import { enterProject, exitProject } from '../utils/animations'
+import { selectProject } from '../store/selectedProject/actions'
+import { SelectedProjectState } from '../store/selectedProject/types'
+import { enterProject, exitProject, revealWorkPane } from '../utils/animations'
 import C from '../utils/constants'
 import styled from '../utils/styledComponents'
 import AllProjectsButton from './single-project/AllProjectsButton'
@@ -33,17 +34,17 @@ const ProjectGrid = styled('div')`
   }
 `
 const ProjectContainer = styled('div')`
-  outline: 0;
+  opacity: 0.01;
 `
 
 interface Props {
   selectProject: typeof selectProject;
-  interactions: InteractionsState;
+  selectedProject: SelectedProjectState;
   measurements: MeasurementsState;
+  featImgsLoaded: FeatImgsLoadedState;
 }
-
 interface State {
-  galleryImgsLoadedCount: number;
+  readyToReveal: boolean;
 }
 
 class WorkPane extends Component<Props, State> {
@@ -56,13 +57,22 @@ class WorkPane extends Component<Props, State> {
     super(props)
     this.projectRefs = {}
     this.projectGridRef = null
+    this.state = {
+      readyToReveal: false,
+    }
+  }
+
+  componentDidUpdate() {
+    const { featImgsLoaded } = this.props
+    const { readyToReveal } = this.state
+    if (featImgsLoaded === Object.keys(projects).length && !readyToReveal) {
+      this.setState({ readyToReveal: true })
+      revealWorkPane(this.projectRefs)
+    }
   }
 
   handleProjectClick = (name: string) => {
-    const {
-      interactions, measurements, selectProject,
-    } = this.props
-    const { selectedProject } = interactions
+    const { selectedProject, measurements, selectProject } = this.props
     const measuredProjects = measurements.projects
     if (!selectedProject) {
       enterProject(
@@ -80,10 +90,7 @@ class WorkPane extends Component<Props, State> {
   }
 
   handleAllProjectsClick = () => {
-    const {
-      interactions, measurements, selectProject,
-    } = this.props
-    const { selectedProject } = interactions
+    const { selectedProject, measurements, selectProject } = this.props
     const measuredProjects = measurements.projects
     if (selectedProject) {
       exitProject(
@@ -97,8 +104,7 @@ class WorkPane extends Component<Props, State> {
   }
 
   render() {
-    const { interactions } = this.props
-    const { selectedProject } = interactions
+    const { selectedProject } = this.props
 
     return (
       <Container>
@@ -130,9 +136,10 @@ class WorkPane extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: AppState) => ({
-  measurements: state.measurements,
-  interactions: state.interactions,
+const mapStateToProps = ({ measurements, selectedProject, featImgsLoaded }: AppState) => ({
+  measurements,
+  selectedProject,
+  featImgsLoaded,
 })
 
 export default connect(

@@ -3,6 +3,19 @@ import { Back, Power4, TimelineLite } from 'gsap'
 import C from './constants'
 import { ElMeasurements } from './globalTypes'
 
+export function revealWorkPane(
+  projectRefs: { [key: string]: null | HTMLDivElement },
+) {
+  const projects = Object.keys(projectRefs).map(key => projectRefs[key])
+  const revealWorkPaneTimeline = new TimelineLite()
+  revealWorkPaneTimeline
+    .staggerFromTo(projects,
+      0.25,
+      { ease: Power4.easeOut, opacity: 0.01, x: 0, y: 30 },
+      { ease: Power4.easeOut, opacity: 1, x: 0, y: 0 },
+      0.08)
+}
+
 export function enterProject(
   name: string,
   projectRefs: { [key: string]: null | HTMLDivElement },
@@ -20,9 +33,9 @@ export function enterProject(
   if (projectToOpen && projectGridRef) {
     selectProjectTimeline
       .staggerTo(projectsToHide,
-        0.15,
-        { ease: Power4.easeOut, opacity: 0, y: 20 },
-        0.02)
+        0.25,
+        { ease: Power4.easeOut, opacity: 0, y: 30 },
+        0.035)
       .to(projectToOpen,
         0.35,
         { ease: Back.easeInOut.config(0.5), x: -projectMeasurements.offsetLeft, y: -projectMeasurements.offsetTop })
@@ -75,6 +88,6 @@ export function exitProject(
       .staggerTo(projectsToReveal,
         0.25,
         { opacity: 1, y: 0 },
-        0.05)
+        0.04)
   }
 }

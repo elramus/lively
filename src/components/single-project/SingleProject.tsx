@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group'
 
 import projects from '../../data/projects'
 import { AppState } from '../../store'
+import { incrementImgsLoaded } from '../../store/featImgsLoaded/actions'
 import { reportProject } from '../../store/measurements/actions'
 import { MeasurementsState } from '../../store/measurements/types'
 import C from '../../utils/constants'
@@ -27,13 +28,16 @@ const Container = styled('div')<{ isSelected: boolean }>`
   }
 `
 
-interface Props {
+interface StoreProps {
+  reportProject: typeof reportProject;
+  incrementImgsLoaded: typeof incrementImgsLoaded;
+}
+interface OwnProps {
   name: string;
   isSelected: boolean;
   measurements: MeasurementsState;
-  reportProject: typeof reportProject;
 }
-
+type Props = StoreProps & OwnProps
 
 class SingleProject extends Component<Props> {
   constructor(props: Props) {
@@ -56,6 +60,8 @@ class SingleProject extends Component<Props> {
   }
 
   handleFtrImgLoad = () => {
+    const { incrementImgsLoaded } = this.props
+    incrementImgsLoaded()
     this.measureProjectTile()
   }
 
@@ -116,5 +122,5 @@ const mapStateToProps = (state: AppState) => ({
 
 export default connect(
   mapStateToProps,
-  { reportProject },
+  { reportProject, incrementImgsLoaded },
 )(SingleProject)

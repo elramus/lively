@@ -1,12 +1,15 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
+
+import featImgsLoaded from './featImgsLoaded/reducers'
 import measurements from './measurements/reducers'
-import interactions from './interactions/reducers'
+import selectedProject from './selectedProject/reducers'
 
 const rootReducer = combineReducers({
   measurements,
-  interactions,
+  selectedProject,
+  featImgsLoaded,
 })
 
 // Global State Type

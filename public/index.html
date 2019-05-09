@@ -9,11 +9,39 @@
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Libre+Franklin:400" rel="stylesheet">
   <link href="normalize.css" rel="stylesheet">
   <title>D. Luke Ramus - UI/UX Developer</title>
+  <style>
+    body:not(.user-is-tabbing) button:focus,
+    body:not(.user-is-tabbing) input:focus,
+    body:not(.user-is-tabbing) select:focus,
+    body:not(.user-is-tabbing) textarea:focus,
+    body:not(.user-is-tabbing) [role=button]:focus {
+      outline: none;
+    }
+  </style>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script>
+    // If you hit tab, we'll add a class that'll make :focus more visible.
+    function handleFirstTab(e) {
+      if (e.keyCode === 9) {
+        document.body.classList.add('user-is-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
+      }
+    }
+    window.addEventListener('keydown', handleFirstTab);
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49704731-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49704731-4');
+  </script>
 </body>
 
 </html>
