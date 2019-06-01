@@ -34,7 +34,7 @@ const ProjectGrid = styled('div')`
   }
 `
 const ProjectContainer = styled('div')`
-  opacity: 0.01;
+  opacity: 0;
 `
 
 interface Props {

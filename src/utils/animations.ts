@@ -1,19 +1,32 @@
 import { Back, Power4, TimelineLite } from 'gsap'
-
 import C from './constants'
 import { ElMeasurements } from './globalTypes'
+
+export function revealNav(navItemRefs: HTMLElement[]) {
+  setTimeout(() => {
+    const revealNavTimeline = new TimelineLite()
+    revealNavTimeline
+      .staggerFromTo(navItemRefs,
+        1,
+        { ease: Power4.easeOut, opacity: 0, y: 30 },
+        { ease: Power4.easeOut, opacity: 1, y: 0 },
+        0.08)
+  }, 200)
+}
 
 export function revealWorkPane(
   projectRefs: { [key: string]: null | HTMLDivElement },
 ) {
-  const projects = Object.keys(projectRefs).map(key => projectRefs[key])
-  const revealWorkPaneTimeline = new TimelineLite()
-  revealWorkPaneTimeline
-    .staggerFromTo(projects,
-      0.25,
-      { ease: Power4.easeOut, opacity: 0.01, x: 0, y: 30 },
-      { ease: Power4.easeOut, opacity: 1, x: 0, y: 0 },
-      0.08)
+  setTimeout(() => {
+    const projects = Object.keys(projectRefs).map(key => projectRefs[key])
+    const revealWorkPaneTimeline = new TimelineLite()
+    revealWorkPaneTimeline
+      .staggerFromTo(projects,
+        1,
+        { ease: Power4.easeOut, opacity: 0, y: 40 },
+        { ease: Power4.easeOut, opacity: 1, y: 0 },
+        0.1)
+  }, 500)
 }
 
 export function enterProject(
@@ -86,8 +99,8 @@ export function exitProject(
         0.35,
         { ease: Back.easeInOut.config(0.5), x: 0, y: 0 })
       .staggerTo(projectsToReveal,
-        0.25,
+        0.5,
         { opacity: 1, y: 0 },
-        0.04)
+        0.1)
   }
 }

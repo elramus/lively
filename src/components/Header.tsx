@@ -20,6 +20,9 @@ const Container = styled('div')`
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    opacity: 0;
+    animation: show 500ms forwards;
+    animation-delay: 200ms;
     @media (max-width: ${props => props.theme.sm}) {
       flex-direction: column;
       align-items: center;

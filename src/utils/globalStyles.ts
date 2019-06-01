@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   html, body {
     box-sizing: border-box;
     background: rgb(2,0,36);
-    background-image: url(${asfaltLight}), linear-gradient(165deg, rgba(2,0,36,1) 30%, rgba(0,71,59,1) 100%);
+    background-image: url(${asfaltLight}), linear-gradient(175deg, rgba(2,0,36,1) 50%, rgba(0,40,34,1) 100%);
     background-attachment: fixed;
   }
   body {
@@ -111,6 +111,14 @@ const GlobalStyles = createGlobalStyle`
     opacity: 0;
     transform: translateY(0.25em);
     transition: opacity 200ms ease-out, transform 200ms ease-out;
+  }
+
+  /* Animations */
+  @keyframes show {
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   /* Mobile */
