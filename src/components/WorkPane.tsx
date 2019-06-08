@@ -8,7 +8,7 @@ import { FeatImgsLoadedState } from '../store/featImgsLoaded/types'
 import { MeasurementsState } from '../store/measurements/types'
 import { selectProject } from '../store/selectedProject/actions'
 import { SelectedProjectState } from '../store/selectedProject/types'
-import { enterProject, exitProject, revealWorkPane } from '../utils/animations'
+import { enterProject, exitProject, initialWorkPaneReveal } from '../utils/animations'
 import C from '../utils/constants'
 import styled from '../utils/styledComponents'
 import AllProjectsButton from './single-project/AllProjectsButton'
@@ -62,16 +62,43 @@ class WorkPane extends Component<Props, State> {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyDown)
+  }
+
   componentDidUpdate() {
     const { featImgsLoaded } = this.props
     const { readyToReveal } = this.state
     if (featImgsLoaded === Object.keys(projects).length && !readyToReveal) {
       this.setState({ readyToReveal: true })
-      revealWorkPane(this.projectRefs)
+      initialWorkPaneReveal(this.projectRefs)
     }
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown)
+  }
+
   handleProjectClick = (name: string) => {
+    this.openProject(name)
+  }
+
+  handleProjectKeyPress = (name: string) => {
+    this.openProject(name)
+  }
+
+  handleAllProjectsClick = () => {
+    this.closeProject()
+  }
+
+  handleKeyDown = (e: KeyboardEvent) => {
+    const { selectedProject } = this.props
+    if (selectedProject && e.which === 27) {
+      this.closeProject()
+    }
+  }
+
+  openProject = (name: string) => {
     const { selectedProject, measurements, selectProject } = this.props
     const measuredProjects = measurements.projects
     if (!selectedProject) {
@@ -85,11 +112,7 @@ class WorkPane extends Component<Props, State> {
     }
   }
 
-  handleProjectKeyPress = (name: string) => {
-    this.handleProjectClick(name)
-  }
-
-  handleAllProjectsClick = () => {
+  closeProject = () => {
     const { selectedProject, measurements, selectProject } = this.props
     const measuredProjects = measurements.projects
     if (selectedProject) {

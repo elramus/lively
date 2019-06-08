@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
-
 import projects from '../../data/projects'
 import { AppState } from '../../store'
 import { incrementImgsLoaded } from '../../store/featImgsLoaded/actions'

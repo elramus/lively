@@ -14,7 +14,7 @@ export function revealNav(navItemRefs: HTMLElement[]) {
   }, 200)
 }
 
-export function revealWorkPane(
+export function initialWorkPaneReveal(
   projectRefs: { [key: string]: null | HTMLDivElement },
 ) {
   setTimeout(() => {
