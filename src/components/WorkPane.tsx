@@ -16,7 +16,7 @@ import SingleProject from './single-project/SingleProject'
 const Container = styled('section')`
   position:relative;
   margin-top: 6em;
-  min-height: 90vh;
+  /* min-height: 90vh; */
 `
 const ProjectGrid = styled('div')`
   position: relative;
