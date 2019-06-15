@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
-
 import projects from '../data/projects'
 import { AppState } from '../store'
 import { FeatImgsLoadedState } from '../store/featImgsLoaded/types'
@@ -63,13 +62,19 @@ class WorkPane extends Component<Props, State> {
   }
 
   componentDidMount() {
+    const { featImgsLoaded } = this.props
+    const { readyToReveal } = this.state
+    if (featImgsLoaded >= Object.keys(projects).length && !readyToReveal) {
+      this.setState({ readyToReveal: true })
+      initialWorkPaneReveal(this.projectRefs)
+    }
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
   componentDidUpdate() {
     const { featImgsLoaded } = this.props
     const { readyToReveal } = this.state
-    if (featImgsLoaded === Object.keys(projects).length && !readyToReveal) {
+    if (featImgsLoaded >= Object.keys(projects).length && !readyToReveal) {
       this.setState({ readyToReveal: true })
       initialWorkPaneReveal(this.projectRefs)
     }
@@ -165,7 +170,6 @@ const mapStateToProps = ({ measurements, selectedProject, featImgsLoaded }: AppS
   featImgsLoaded,
 })
 
-export default connect(
-  mapStateToProps,
-  { selectProject },
-)(WorkPane)
+export default connect(mapStateToProps, {
+  selectProject,
+})(WorkPane)

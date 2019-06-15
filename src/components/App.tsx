@@ -1,9 +1,10 @@
 import React from 'react'
-
+import { Route } from 'react-router-dom'
 import styled from '../utils/styledComponents'
 import Footer from './Footer'
 import Header from './Header'
 import WorkPane from './WorkPane'
+import About from './About'
 
 const Container = styled('div')`
   position: relative;
@@ -15,7 +16,8 @@ const Container = styled('div')`
 const App = () => (
   <Container>
     <Header />
-    <WorkPane />
+    <Route exact path="/" component={WorkPane} />
+    <Route exact path="/about" component={About} />
     <Footer />
   </Container>
 )

@@ -1,9 +1,4 @@
-interface C {
-  ProjectContentsTransition: number;
-  LineDashOffsetTransition: number;
-}
-
-const C: C = {
+const C = {
   ProjectContentsTransition: 300,
   LineDashOffsetTransition: 12000,
 }

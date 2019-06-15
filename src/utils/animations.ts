@@ -2,7 +2,9 @@ import { Back, Power4, TimelineLite } from 'gsap'
 import C from './constants'
 import { ElMeasurements } from './globalTypes'
 
-export function revealNav(navItemRefs: HTMLElement[]) {
+export function revealNav(
+  navItemRefs: HTMLElement[],
+) {
   setTimeout(() => {
     const revealNavTimeline = new TimelineLite()
     revealNavTimeline
@@ -44,6 +46,13 @@ export function enterProject(
     .map(n => projectRefs[n])
 
   if (projectToOpen && projectGridRef) {
+    if (window.innerWidth <= 767) {
+      window.scrollTo({
+        top: 225,
+        left: 0,
+        behavior: 'smooth',
+      })
+    }
     selectProjectTimeline
       .staggerTo(projectsToHide,
         0.25,
@@ -63,7 +72,6 @@ export function enterProject(
         // switch the grid to plain 'ol block when showing project inner content
         display: 'block',
       })
-      .to({}, (C.ProjectContentsTransition / 1000), {})
   }
 }
 

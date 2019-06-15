@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
     background-attachment: fixed;
   }
   body {
-    font-size: 15px;
+    font-size: 16px;
     font-family: ${props => props.theme.paragraphFont};
     color: white;
     line-height: 1.75;
@@ -62,7 +62,6 @@ const GlobalStyles = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    color: ${props => props.theme.darkGray};
   }
   strong {
     font-weight: 700;

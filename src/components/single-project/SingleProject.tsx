@@ -12,6 +12,7 @@ import styled from '../../utils/styledComponents'
 import ProjectCopy from './ProjectCopy'
 import ProjectGallery from './ProjectGallery'
 import ProjectSidebar from './ProjectSidebar'
+import { selectProject } from '../../store/selectedProject/actions'
 
 const Container = styled('div')<{ isSelected: boolean }>`
   position: relative;
@@ -30,6 +31,7 @@ const Container = styled('div')<{ isSelected: boolean }>`
 interface StoreProps {
   reportProject: typeof reportProject;
   incrementImgsLoaded: typeof incrementImgsLoaded;
+  selectProject: typeof selectProject;
 }
 interface OwnProps {
   name: string;
@@ -49,6 +51,8 @@ class SingleProject extends Component<Props> {
   }
 
   componentWillUnmount() {
+    const { selectProject } = this.props
+    selectProject(null)
     window.removeEventListener('resize', this.measureProjectTile)
   }
 
@@ -119,7 +123,8 @@ const mapStateToProps = (state: AppState) => ({
   measurements: state.measurements,
 })
 
-export default connect(
-  mapStateToProps,
-  { reportProject, incrementImgsLoaded },
-)(SingleProject)
+export default connect(mapStateToProps, {
+  reportProject,
+  incrementImgsLoaded,
+  selectProject,
+})(SingleProject)

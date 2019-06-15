@@ -1,6 +1,5 @@
 import React from 'react'
-
-import me from '../media/luke-headshot-150.jpg'
+import { Link } from 'react-router-dom'
 import styled from '../utils/styledComponents'
 import Nav from './Nav'
 
@@ -12,14 +11,9 @@ const Container = styled('div')`
   margin: 0 auto;
   @media (max-width: ${props => props.theme.sm}) {
     flex-direction: column;
-    >div {
-      margin-bottom: 2em;
-    }
   }
   .left {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    color: white;
     opacity: 0;
     animation: show 500ms forwards;
     animation-delay: 200ms;
@@ -27,18 +21,7 @@ const Container = styled('div')`
       flex-direction: column;
       align-items: center;
       text-align: center;
-    }
-  }
-  .headshot {
-    display: inline-block;
-    height: 3.5em;
-    width: 3.5em;
-    margin-right: 1em;
-    border-radius: 100%;
-    background-image: url(${me});
-    background-size: cover;
-    @media (max-width: ${props => props.theme.sm}) {
-      margin: 0 0 2em 0;
+      margin-bottom: 2em;
     }
   }
   h1 {
@@ -49,13 +32,10 @@ const Container = styled('div')`
 
 const Header = () => (
   <Container>
-    <div className="left">
-      <div className="headshot" />
-      <div>
-        <h1>D. Luke Ramus</h1>
-        <h4>UI / UX Developer</h4>
-      </div>
-    </div>
+    <Link to="/" className="left">
+      <h1>D. Luke Ramus</h1>
+      <h4>Maker Of Web Tools</h4>
+    </Link>
     <Nav />
   </Container>
 )

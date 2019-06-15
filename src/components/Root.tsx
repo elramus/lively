@@ -18,7 +18,7 @@ import {
 } from '@fortawesome/pro-regular-svg-icons'
 import React from 'react'
 import { Provider } from 'react-redux'
-
+import { BrowserRouter } from 'react-router-dom'
 import store from '../store'
 import GlobalStyles from '../utils/globalStyles'
 import { ThemeProvider } from '../utils/styledComponents'
@@ -42,14 +42,16 @@ library.add(
 )
 
 const Root = () => (
-  <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyles />
-        <App />
-      </>
-    </ThemeProvider>
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <>
+          <GlobalStyles />
+          <App />
+        </>
+      </ThemeProvider>
+    </Provider>
+  </BrowserRouter>
 )
 
 export default Root
