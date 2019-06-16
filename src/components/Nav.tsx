@@ -23,11 +23,13 @@ const Container = styled('ul')`
       width: 3.5em;
       border-radius: 100%;
       color: white;
-      transition: background 100ms ease-out;
+      opacity: 0.75;
+      transition: background 100ms ease-out, opacity 100ms ease-out;
       svg {
         font-size: ${props => props.theme.ms2};
       }
       &:hover, &.active {
+        opacity: 1;
         background: rgba(255,255,255, .15);
       }
     }

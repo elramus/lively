@@ -10,13 +10,16 @@ import { SelectedProjectState } from '../store/selectedProject/types'
 import { enterProject, exitProject, initialWorkPaneReveal } from '../utils/animations'
 import C from '../utils/constants'
 import styled from '../utils/styledComponents'
-import AllProjectsButton from './single-project/AllProjectsButton'
+import PortfolioButton from './PortfolioButton'
 import SingleProject from './single-project/SingleProject'
 
 const Container = styled('section')`
   position:relative;
-  margin-top: 6em;
-  /* min-height: 90vh; */
+  margin-top: 4em;
+  .portfolio-button {
+    position: absolute;
+    top: -3.7em;
+  }
 `
 const ProjectGrid = styled('div')`
   position: relative;
@@ -143,8 +146,9 @@ class WorkPane extends Component<Props, State> {
           classNames="fade-slide-down"
           unmountOnExit
         >
-          <AllProjectsButton clickHandler={() => this.handleAllProjectsClick()} />
+          <PortfolioButton clickHandler={() => this.handleAllProjectsClick()} />
         </CSSTransition>
+
         <ProjectGrid ref={div => this.projectGridRef = div}>
           {Object.keys(projects).map(name => (
             <ProjectContainer

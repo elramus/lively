@@ -1,14 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-
-import styled from '../../utils/styledComponents'
+import styled from '../utils/styledComponents'
 
 const Container = styled('button')`
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: -3.7em;
   padding: 0.75em 1em;
   background: none;
   border-radius: 7px;
@@ -25,11 +22,11 @@ interface Props {
   clickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const AllProjectsButton = ({ clickHandler }: Props) => (
-  <Container type="button" onClick={clickHandler}>
+const PortfolioButton = ({ clickHandler }: Props) => (
+  <Container type="button" className="portfolio-button" onClick={clickHandler}>
     <FontAwesomeIcon icon={['far', 'long-arrow-left']} />
-    <h5>All Projects</h5>
+    <h5>Back To Portfolio</h5>
   </Container>
 )
 
-export default AllProjectsButton
+export default PortfolioButton

@@ -34,7 +34,7 @@ const Header = () => (
   <Container>
     <Link to="/" className="left">
       <h1>D. Luke Ramus</h1>
-      <h4>Builder Of Web Tools</h4>
+      <h4>Front-End Engineer</h4>
     </Link>
     <Nav />
   </Container>
