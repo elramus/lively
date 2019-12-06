@@ -25,17 +25,17 @@ const Container = styled('div')`
     margin-bottom: 1em;
     text-align: left;
   }
-  img {
-    width: 30em;
-    margin-top: 4em;
-  }
   ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
+    align-items: center;
+    max-width: 30em;
+    margin: 2em auto;
     li {
       list-style-type: none;
-      max-width: 2em;
+      padding: 1em;
+      max-width: 2.5em;
       opacity: 0.75;
       transition: opacity 100ms ease-out;
       &:hover {
