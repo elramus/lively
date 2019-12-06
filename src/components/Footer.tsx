@@ -14,15 +14,18 @@ const Container = styled('footer')`
     text-transform: uppercase;
     opacity: 0.5;
   }
+  a {
+    color: white;
+
+  }
   svg {
-    color: ${props => props.theme.green};
     margin-left: 0.25em;
   }
 `
 
 const Footer = () => (
   <Container>
-    <p>&copy; {new Date().getFullYear()} Daniel Luke Ramus. View source code on <a href="https://github.com/elramus/lively" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'github']} /></a></p>
+    <p>&copy; {new Date().getFullYear()} Daniel Luke Ramus. <a href="https://github.com/elramus/lively" target="_blank" rel="noopener noreferrer">View source code on  <FontAwesomeIcon icon={['fab', 'github']} /></a></p>
   </Container>
 )
 
