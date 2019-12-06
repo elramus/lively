@@ -11,8 +11,8 @@ const Container = styled('a')`
   padding: 1em;
   margin-bottom: 2em;
   border-radius: 7px;
-  background: ${props => props.theme.green};
-  color: ${props => props.theme.darkBlue};
+  background: rgba(255,255,255, .15);
+  color: white;
   transition: background 75ms ease-out, color 75ms ease-out;
   svg {
     position: relative;
@@ -20,7 +20,7 @@ const Container = styled('a')`
     margin-left: 0.75em;
   }
   &:hover {
-    background: rgba(255,255,255, .15);
+    background: rgba(255,255,255, .35);
     color: white;
   }
 `

@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import styled from '../utils/styledComponents'
 import javascript from '../media/tools/javascript.png'
 import laravel from '../media/tools/laravel.png'
-import photoshop from '../media/tools/photoshop.png'
+import xd from '../media/tools/xd.png'
 import react from '../media/tools/react.png'
 import sass from '../media/tools/sass.png'
 import sketch from '../media/tools/sketch.png'
@@ -49,7 +49,7 @@ const About = ({ history }: RouteComponentProps) => (
   <Container>
     <PortfolioButton clickHandler={() => history.push('/')} />
     <h1>About Luke</h1>
-    <p>Hi there, I’m a front-end engineer and UI/UX designer. I get my kicks from creating web experiences that magically wrestle complexity into delightful simplicity. <strong>But really I just love making great tools for people so they can work smarter.</strong></p>
+    <p>Hi there, I’m a front-end engineer and UI/UX designer. I get my kicks from creating web experiences that magically wrestle complexity into delightful simplicity. <strong>But really I just love making powerful tools for people so they can work smarter.</strong></p>
     <p>I have an MS in Human-Computer Interaction and a voracious appetite for learning new tech and building things. My favorite tools these days are <strong>React / Redux, TypeScript,</strong> and <strong>Laravel</strong>. Currently I work at the University of Chicago Law School where we build custom web applications for faculty, students, and staff when off-the-shelf solutions don't quite fit our needs.</p>
     <ul>
       <li>
@@ -88,8 +88,8 @@ const About = ({ history }: RouteComponentProps) => (
         </a>
       </li>
       <li>
-        <a href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener noreferrer">
-          <img src={photoshop} alt="photoshop" />
+        <a href="https://www.adobe.com/products/xd.html" target="_blank" rel="noopener noreferrer">
+          <img src={xd} alt="Adobe Experience Design" />
         </a>
       </li>
     </ul>
