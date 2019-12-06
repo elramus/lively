@@ -30,9 +30,9 @@ const Container = styled('div')`
     margin-top: 4em;
   }
   ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
     li {
       list-style-type: none;
       max-width: 2em;
@@ -50,7 +50,7 @@ const About = ({ history }: RouteComponentProps) => (
     <PortfolioButton clickHandler={() => history.push('/')} />
     <h1>About Luke</h1>
     <p>Hi there, I’m a front-end engineer and UI/UX designer. I get my kicks from creating web experiences that magically wrestle complexity into delightful simplicity. <strong>But really I just love making great tools for people so they can work smarter.</strong></p>
-    <p>I have an MS in Human-Computer Interaction and a voracious appetite for learning new tech and building things. My favorite tools these days are <strong>React / Redux, TypeScript, and Laravel</strong>. Currently I work at the University of Chicago Law School where we build custom web applications for faculty, students, and staff when off-the-shelf solutions don't quite fit our needs.</p>
+    <p>I have an MS in Human-Computer Interaction and a voracious appetite for learning new tech and building things. My favorite tools these days are <strong>React / Redux, TypeScript,</strong> and <strong>Laravel</strong>. Currently I work at the University of Chicago Law School where we build custom web applications for faculty, students, and staff when off-the-shelf solutions don't quite fit our needs.</p>
     <ul>
       <li>
         <a href="https://github.com/facebook/react" target="_blank" rel="noopener noreferrer">
