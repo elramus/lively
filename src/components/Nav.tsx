@@ -26,7 +26,7 @@ const Container = styled('ul')`
       opacity: 0.75;
       transition: background 100ms ease-out, opacity 100ms ease-out;
       svg {
-        font-size: ${props => props.theme.ms2};
+        font-size: ${props => props.theme.ms(2)};
       }
       &:hover, &.active {
         opacity: 1;

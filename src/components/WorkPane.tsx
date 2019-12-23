@@ -10,13 +10,13 @@ import { SelectedProjectState } from '../store/selectedProject/types'
 import { enterProject, exitProject, initialWorkPaneReveal } from '../utils/animations'
 import C from '../utils/constants'
 import styled from '../utils/styledComponents'
-import PortfolioButton from './PortfolioButton'
 import SingleProject from './single-project/SingleProject'
+import TextButton from './TextButton'
 
 const Container = styled('section')`
-  position:relative;
+  position: relative;
   margin-top: 4em;
-  .portfolio-button {
+  .portfolio-back-button {
     position: absolute;
     top: -3.7em;
   }
@@ -28,10 +28,10 @@ const ProjectGrid = styled('div')`
   margin: auto;
   grid-template-columns: 250px 250px 250px;
   grid-column-gap: 2em;
-  @media (max-width: ${props => props.theme.md}) {
+  @media (max-width: ${(props) => props.theme.md}) {
     grid-template-columns: 250px 250px;
   }
-  @media (max-width: ${props => props.theme.sm}) {
+  @media (max-width: ${(props) => props.theme.sm}) {
     grid-template-columns: 1fr;
   }
 `
@@ -146,20 +146,27 @@ class WorkPane extends Component<Props, State> {
           classNames="fade-slide-down"
           unmountOnExit
         >
-          <PortfolioButton clickHandler={() => this.handleAllProjectsClick()} />
+          <div className="portfolio-back-button">
+            <TextButton
+              text="Back To Portfolio"
+              leadingIcon={['far', 'long-arrow-left']}
+              onClick={() => this.handleAllProjectsClick()}
+              noBg
+            />
+          </div>
         </CSSTransition>
 
-        <ProjectGrid ref={div => this.projectGridRef = div}>
-          {Object.keys(projects).map(name => (
+        <ProjectGrid ref={(div) => this.projectGridRef = div}>
+          {Object.keys(projects).map((projectId) => (
             <ProjectContainer
-              key={name}
-              onClick={() => this.handleProjectClick(name)}
-              onKeyPress={() => this.handleProjectKeyPress(name)}
-              ref={div => this.projectRefs[name] = div}
-              tabIndex={selectedProject === name ? undefined : 0}
+              key={projectId}
+              onClick={() => this.handleProjectClick(projectId)}
+              onKeyPress={() => this.handleProjectKeyPress(projectId)}
+              ref={(div) => this.projectRefs[projectId] = div}
+              tabIndex={selectedProject === projectId ? undefined : 0}
               role="button"
             >
-              <SingleProject name={name} isSelected={selectedProject === name} />
+              <SingleProject projectId={projectId} isSelected={selectedProject === projectId} />
             </ProjectContainer>
           ))}
         </ProjectGrid>

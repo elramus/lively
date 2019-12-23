@@ -5,11 +5,13 @@ import {
   faGulp,
   faJs,
   faLinkedin,
+  faReact,
   faSketch,
   faWordpress,
 } from '@fortawesome/free-brands-svg-icons'
 import {
   faAngleDown,
+  faCode,
   faEnvelope,
   faExternalLinkSquare,
   faHandSpock,
@@ -28,6 +30,7 @@ import App from './App'
 library.add(
   faAdobe,
   faAngleDown,
+  faCode,
   faEnvelope,
   faExternalLinkSquare,
   faGulp,
@@ -36,6 +39,7 @@ library.add(
   faJs,
   faLinkedin,
   faLongArrowLeft,
+  faReact,
   faSketch,
   faWrench,
   faWordpress,

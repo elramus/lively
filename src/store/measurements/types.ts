@@ -11,7 +11,7 @@ export const REPORT_PROJECT = 'REPORT_PROJECT'
 // Redux Actions
 export interface ReportProjectAction {
   type: typeof REPORT_PROJECT;
-  name: string;
+  projectId: string;
   measurements: ElMeasurements;
 }
 

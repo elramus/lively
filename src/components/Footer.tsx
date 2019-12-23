@@ -10,7 +10,7 @@ const Container = styled('footer')`
   padding: 6em 0 1em 0;
   p {
     font-family: ${props => props.theme.headingFont};
-    font-size: ${props => props.theme.ms6};
+    font-size: ${props => props.theme.ms(-2)};
     text-transform: uppercase;
     opacity: 0.5;
   }

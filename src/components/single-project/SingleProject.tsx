@@ -34,7 +34,7 @@ interface StoreProps {
   selectProject: typeof selectProject;
 }
 interface OwnProps {
-  name: string;
+  projectId: string;
   isSelected: boolean;
   measurements: MeasurementsState;
 }
@@ -57,9 +57,9 @@ class SingleProject extends Component<Props> {
   }
 
   measureProjectTile = () => {
-    const { reportProject, name } = this.props
+    const { reportProject, projectId } = this.props
     const measurements = measureElement(this.projectRef)
-    if (measurements) reportProject(name, measurements)
+    if (measurements) reportProject(projectId, measurements)
   }
 
   handleFtrImgLoad = () => {
@@ -75,11 +75,11 @@ class SingleProject extends Component<Props> {
   projectRef: HTMLDivElement | null;
 
   render() {
-    const { name, isSelected, measurements } = this.props
+    const { projectId, isSelected, measurements } = this.props
     const measuredProjects = measurements.projects
-    const imgWidth = measuredProjects[name] ? measuredProjects[name].width : null
-    const imgHeight = measuredProjects[name] ? measuredProjects[name].height : null
-    const project = projects[name]
+    const imgWidth = measuredProjects[projectId] ? measuredProjects[projectId].width : null
+    const imgHeight = measuredProjects[projectId] ? measuredProjects[projectId].height : null
+    const project = projects[projectId as keyof typeof projects]
 
     return (
       <Container ref={this.setProjectRef} isSelected={isSelected} className="project-container">

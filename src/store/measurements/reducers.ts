@@ -14,7 +14,7 @@ const measurements = (
         ...state,
         projects: {
           ...state.projects,
-          [action.name]: action.measurements,
+          [action.projectId]: action.measurements,
         },
       }
     default:

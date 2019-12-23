@@ -22,6 +22,7 @@ export interface Project {
   galleryImgsSm: string[];
   galleryImgsLg?: string[];
   url?: string;
+  github?: string;
   tech: {
     img?: string;
     icon?: [IconPrefix, IconName];

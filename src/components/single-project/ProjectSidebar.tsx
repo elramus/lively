@@ -1,11 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { CSSTransition } from 'react-transition-group'
-
 import C from '../../utils/constants'
 import { Project } from '../../utils/globalTypes'
 import styled from '../../utils/styledComponents'
-import ViewLive from './ViewLive'
+import TextButton from '../TextButton'
 
 const Container = styled('div')<{ isSelected: boolean }>`
   position: relative;
@@ -32,19 +31,20 @@ const Container = styled('div')<{ isSelected: boolean }>`
 const TechList = styled('ul')`
   li {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     margin-bottom: 0.25em;
     list-style-type: none;
     div {
       text-align: center;
       padding-right: 0.5em;
+      max-width: 1em;
       .svg-inline--fa {
         position: relative;
         top: 1px;
       }
     }
     span {
-      font-size: ${props => props.theme.ms5};
+      font-size: ${props => props.theme.ms(-1)};
     }
   }
 `
@@ -59,48 +59,71 @@ interface Props {
 
 const ProjectSidebar = ({
   isSelected, project, handleFtrImgLoad,
-}: Props) => (
-  <Container isSelected={isSelected}>
-    <div className="img-container" style={{ backgroundImage: `url(${project.featuredImg})` }}>
-      <img
-        src={project.featuredImg}
-        alt={project.name}
-        onLoad={() => handleFtrImgLoad()}
-      />
-    </div>
-    {(project.url || project.tech.length > 0) && (
-      <CSSTransition
-        mountOnEnter
-        in={isSelected}
-        classNames="fade-slide-up"
-        timeout={C.ProjectContentsTransition}
-        unmountOnExit
-      >
-        <div>
-          {project.url && (
-            <ViewLive project={project} />
-          )}
-          {project.tech.length > 0 && (
-            <TechList>
-              {project.tech.map(t => (
-                <li key={t.label}>
-                  <div>
-                    {t.icon && (
-                      <FontAwesomeIcon icon={t.icon} fixedWidth />
-                    )}
-                    {t.img && (
-                      <img src={t.img} alt={t.label} />
-                    )}
-                  </div>
-                  <span>{t.label}</span>
-                </li>
-              ))}
-            </TechList>
-          )}
-        </div>
-      </CSSTransition>
-    )}
-  </Container>
-)
+}: Props) => {
+  function handleViewLive() {
+    if (project.url) window.open(project.url, '_blank')
+  }
+
+  function handleViewCode() {
+    if (project.github) window.open(project.github, '_blank')
+  }
+
+  return (
+    <Container isSelected={isSelected}>
+      <div className="img-container" style={{ backgroundImage: `url(${project.featuredImg})` }}>
+        <img
+          src={project.featuredImg}
+          alt={project.name}
+          onLoad={() => handleFtrImgLoad()}
+        />
+      </div>
+      {(project.url || project.tech.length > 0) && (
+        <CSSTransition
+          mountOnEnter
+          in={isSelected}
+          classNames="fade-slide-up"
+          timeout={C.ProjectContentsTransition}
+          unmountOnExit
+        >
+          <div>
+            {project.url && (
+              <TextButton
+                text="Live Site"
+                trailingIcon={['far', 'external-link-square']}
+                onClick={handleViewLive}
+                width="100%"
+              />
+            )}
+            {project.github && (
+              <TextButton
+                text="Github"
+                trailingIcon={['fab', 'github']}
+                onClick={handleViewCode}
+                width="100%"
+              />
+            )}
+            {project.tech.length > 0 && (
+              <TechList>
+                {project.tech.map(t => (
+                  <li key={t.label}>
+                    <div>
+                      {t.icon && (
+                        <FontAwesomeIcon icon={t.icon} fixedWidth />
+                      )}
+                      {t.img && (
+                        <img src={t.img} alt={t.label} />
+                      )}
+                    </div>
+                    <span>{t.label}</span>
+                  </li>
+                ))}
+              </TechList>
+            )}
+          </div>
+        </CSSTransition>
+      )}
+    </Container>
+  )
+}
 
 export default ProjectSidebar

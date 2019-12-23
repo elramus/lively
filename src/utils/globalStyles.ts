@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
     background-attachment: fixed;
   }
   body {
-    font-size: 16px;
+    font-size: ${props => props.theme.ms(0)};
     font-family: ${props => props.theme.paragraphFont};
     color: white;
     line-height: 1.75;
@@ -35,25 +35,25 @@ const GlobalStyles = createGlobalStyle`
     opacity: .9;
   }
   h1 {
-    font-size: ${props => props.theme.ms1};
+    font-size: ${props => props.theme.ms(3)};
   }
   h2 {
-    font-size: ${props => props.theme.ms2};
+    font-size: ${props => props.theme.ms(2)};
   }
   h3 {
-    font-size: ${props => props.theme.ms3};
+    font-size: ${props => props.theme.ms(1)};
   }
   h4 {
-    font-size: ${props => props.theme.ms4};
+    font-size: ${props => props.theme.ms(0)};
     text-transform: uppercase;
     letter-spacing: 1.4px;
   }
   h5 {
-    font-size: ${props => props.theme.ms5};
+    font-size: ${props => props.theme.ms(-1)};
     text-transform: uppercase;
   }
   h6 {
-    font-size: ${props => props.theme.ms6};
+    font-size: ${props => props.theme.ms(-2)};
   }
   p {
     line-height: 1.95;

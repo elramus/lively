@@ -16,7 +16,7 @@ const Container = styled('button')`
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  font-size: ${props => props.theme.ms5};
+  font-size: ${props => props.theme.ms(-1)};
   svg {
     margin-left: 0.5em;
   }

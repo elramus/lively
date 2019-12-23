@@ -21,13 +21,15 @@ export const theme = {
   headingFont: 'Josefin Sans, sans-serif',
   paragraphFont: 'Libre Franklin, sans-serif',
 
-  // Modular scale font sizes
-  ms1: '2.24em',
-  ms2: '1.69em',
-  ms3: '1.33em',
-  ms4: '1em',
-  ms5: '0.8em',
-  ms6: '0.6em',
+  /**
+   * Typographic module scale! Base font size here is 16px. Change to
+   * whatever you want.
+   *
+   * Calculated from base font size with a ratio of 1.33. So, ms(0) is your
+   * base font size, and you can go up and down from there.
+   * https://www.modularscale.com.
+   */
+  ms: (modifier: number) => `${(16 * (1.33 ** modifier)).toFixed(2)}px`,
 
   // Shadows
   bigBoxShadow: '3px 10px 25px rgba(0,0,0,.15)',

@@ -2,10 +2,10 @@ import { ElMeasurements } from '../../utils/globalTypes'
 import { REPORT_PROJECT, ReportProjectAction } from './types'
 
 export const reportProject = (
-  name: string,
+  projectId: string,
   measurements: ElMeasurements,
 ): ReportProjectAction => ({
   type: REPORT_PROJECT,
-  name,
+  projectId,
   measurements,
 })
