@@ -17,6 +17,7 @@ const Container = styled('div')<{ isSelected: boolean }>`
     background-repeat: no-repeat;
     opacity: ${props => (props.isSelected ? '1' : '0.75')};
     box-shadow: ${props => props.theme.bigBoxShadow};
+    border-radius: 7px;
     transition: transform 150ms ease-out, opacity 150ms ease-out;
     img {
       display: none;
@@ -71,6 +72,7 @@ const ProjectSidebar = ({
   return (
     <Container isSelected={isSelected}>
       <div className="img-container" style={{ backgroundImage: `url(${project.featuredImg})` }}>
+        {/* The image is display:none, but we use this to trigger onLoad */}
         <img
           src={project.featuredImg}
           alt={project.name}

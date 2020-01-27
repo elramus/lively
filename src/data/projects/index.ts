@@ -1,19 +1,19 @@
-// import { oversight } from './oversight'
+import { oversight } from './oversight'
 import { haney } from './haney'
 import { hubspot } from './hubspot'
 import { mmuf } from './mmuf'
 import { music } from './music'
 import { winterlight } from './winterlight'
-import { localizer } from './localizer'
+// import { localizer } from './localizer'
 
 const projects = {
-  // oversight,
+  oversight,
   haney,
   mmuf,
   hubspot,
   music,
   winterlight,
-  localizer,
+  // localizer,
 }
 
 export default projects
