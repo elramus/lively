@@ -8,7 +8,7 @@ import react from '../media/tools/react.png'
 import sass from '../media/tools/sass.png'
 import sketch from '../media/tools/sketch.png'
 import typescript from '../media/tools/typescript.png'
-import wordpress from '../media/tools/wordpress.png'
+import python from '../media/tools/python.png'
 import TextButton from './TextButton'
 
 const Container = styled('div')`
@@ -27,7 +27,7 @@ const Container = styled('div')`
   }
   ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(6.5em, 1fr));
     justify-items: center;
     align-items: center;
     max-width: 30em;
@@ -54,8 +54,8 @@ const About = ({ history }: RouteComponentProps) => (
       noBg
     />
     <h1>About Luke</h1>
-    <p>Hi there, I’m a front-end engineer and UI/UX designer. I get my kicks from creating web experiences that magically wrestle complexity into delightful simplicity. <strong>But really I just love making powerful tools for people so they can work smarter.</strong></p>
-    <p>I have an MS in Human-Computer Interaction and a voracious appetite for learning new tech and building things. My favorite tools these days are <strong>React / Redux, TypeScript,</strong> and <strong>Laravel</strong>. Currently I work at the University of Chicago Law School where we build custom web applications for faculty, students, and staff when off-the-shelf solutions don't quite fit our needs.</p>
+    <p>Hi there, I’m a software engineer and UI/UX designer. I get my kicks from creating web experiences that magically wrestle complexity into delightful simplicity. <strong>But really I just love making powerful tools for people so they can work smarter.</strong></p>
+    <p>I have an MS in Human-Computer Interaction and a voracious appetite for learning new tech and creating fun things with it. My favorite tools these days are <strong>React, TypeScript, Python</strong>, and <strong>Laravel</strong>. Currently I work at the University of Chicago Law School where we build custom web applications for faculty, students, and staff when off-the-shelf solutions don't quite fit our needs.</p>
     <ul>
       <li>
         <a href="https://github.com/facebook/react" target="_blank" rel="noopener noreferrer">
@@ -73,6 +73,11 @@ const About = ({ history }: RouteComponentProps) => (
         </a>
       </li>
       <li>
+        <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+          <img src={python} alt="python" />
+        </a>
+      </li>
+      <li>
         <a href="https://github.com/laravel/laravel" target="_blank" rel="noopener noreferrer">
           <img src={laravel} alt="laravel" />
         </a>
@@ -80,11 +85,6 @@ const About = ({ history }: RouteComponentProps) => (
       <li>
         <a href="https://github.com/sass/sass" target="_blank" rel="noopener noreferrer">
           <img src={sass} alt="sass" />
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/WordPress/WordPress" target="_blank" rel="noopener noreferrer">
-          <img src={wordpress} alt="wordpress" />
         </a>
       </li>
       <li>

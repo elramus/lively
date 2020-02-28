@@ -31,7 +31,7 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: ${props => props.theme.headingFont};
     font-weight: normal;
-    line-height: 1;
+    line-height: 1.25;
     opacity: .9;
   }
   h1 {

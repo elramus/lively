@@ -32,16 +32,21 @@ const Container = styled('div')<{ isSelected: boolean }>`
 const TechList = styled('ul')`
   li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 0.25em;
     list-style-type: none;
-    div {
-      text-align: center;
+    .icon-container {
       padding-right: 0.5em;
-      max-width: 1em;
+      width: 1.5em;
       .svg-inline--fa {
         position: relative;
-        top: 1px;
+        top: -3px;
+      }
+      img {
+        position: relative;
+        top: -2px;
+        left: 2px;
+        max-width: 1em;
       }
     }
     span {
@@ -108,7 +113,7 @@ const ProjectSidebar = ({
               <TechList>
                 {project.tech.map(t => (
                   <li key={t.label}>
-                    <div>
+                    <div className="icon-container">
                       {t.icon && (
                         <FontAwesomeIcon icon={t.icon} fixedWidth />
                       )}

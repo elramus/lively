@@ -3,7 +3,7 @@ import tsLogo from '../../media/tools/typescript.png'
 import * as oversightImgs from '../../media/projects/oversight'
 
 export const oversight: Project = {
-  name: 'Police Oversight Agencies',
+  name: 'Police Oversight Agencies in Top 100 U.S. Cities',
   description: 'A University of Chicago Law School professor conducted an internet survey of the government bodies responsible for civilian oversight of municipal law enforcement entities in the top 100 U.S. jurisdictions based on population. We built a website to make the data accessible and explorable through visualizations and tables.',
   approach: [
     'Create interactive map of the U.S. using D3.js.',
