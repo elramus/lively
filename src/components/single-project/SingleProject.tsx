@@ -13,6 +13,7 @@ import ProjectCopy from './ProjectCopy'
 import ProjectGallery from './ProjectGallery'
 import ProjectSidebar from './ProjectSidebar'
 import { selectProject } from '../../store/selectedProject/actions'
+import { SelectedProjectState } from '../../store/selectedProject/types'
 
 const Container = styled('div')<{ isSelected: boolean }>`
   position: relative;
@@ -32,6 +33,7 @@ interface StoreProps {
   reportProject: typeof reportProject;
   incrementImgsLoaded: typeof incrementImgsLoaded;
   selectProject: typeof selectProject;
+  selectedProject: SelectedProjectState;
 }
 interface OwnProps {
   projectId: string;
@@ -57,9 +59,11 @@ class SingleProject extends Component<Props> {
   }
 
   measureProjectTile = () => {
-    const { reportProject, projectId } = this.props
-    const measurements = measureElement(this.projectRef)
-    if (measurements) reportProject(projectId, measurements)
+    const { reportProject, projectId, selectedProject } = this.props
+    if (selectedProject === null) {
+      const measurements = measureElement(this.projectRef, true)
+      if (measurements) reportProject(projectId, measurements)
+    }
   }
 
   handleFtrImgLoad = () => {
@@ -121,6 +125,7 @@ class SingleProject extends Component<Props> {
 
 const mapStateToProps = (state: AppState) => ({
   measurements: state.measurements,
+  selectedProject: state.selectedProject,
 })
 
 export default connect(mapStateToProps, {

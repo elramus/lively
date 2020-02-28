@@ -35,7 +35,7 @@ export const theme = {
   bigBoxShadow: '3px 10px 25px rgba(0,0,0,.15)',
 
   // Breakpoints
-  md: '950px',
+  md: '1100px',
   sm: '767px',
   xs: '400px',
 }

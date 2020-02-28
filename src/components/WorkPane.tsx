@@ -51,13 +51,13 @@ interface State {
 
 class WorkPane extends Component<Props, State> {
   projectGridRef: null | HTMLDivElement;
-  projectRefs: {
+  projectContRefs: {
     [key: string]: null | HTMLDivElement;
   }
 
   constructor(props: Props) {
     super(props)
-    this.projectRefs = {}
+    this.projectContRefs = {}
     this.projectGridRef = null
     this.state = {
       readyToReveal: false,
@@ -69,7 +69,7 @@ class WorkPane extends Component<Props, State> {
     const { readyToReveal } = this.state
     if (featImgsLoaded >= Object.keys(projects).length && !readyToReveal) {
       this.setState({ readyToReveal: true })
-      initialWorkPaneReveal(this.projectRefs)
+      initialWorkPaneReveal(this.projectContRefs)
     }
     window.addEventListener('keydown', this.handleKeyDown)
   }
@@ -79,7 +79,7 @@ class WorkPane extends Component<Props, State> {
     const { readyToReveal } = this.state
     if (featImgsLoaded >= Object.keys(projects).length && !readyToReveal) {
       this.setState({ readyToReveal: true })
-      initialWorkPaneReveal(this.projectRefs)
+      initialWorkPaneReveal(this.projectContRefs)
     }
   }
 
@@ -112,7 +112,7 @@ class WorkPane extends Component<Props, State> {
     if (!selectedProject) {
       enterProject(
         name,
-        this.projectRefs,
+        this.projectContRefs,
         measuredProjects,
         this.projectGridRef,
         selectProject,
@@ -126,7 +126,7 @@ class WorkPane extends Component<Props, State> {
     if (selectedProject) {
       exitProject(
         selectedProject,
-        this.projectRefs,
+        this.projectContRefs,
         measuredProjects,
         this.projectGridRef,
         selectProject,
@@ -162,11 +162,14 @@ class WorkPane extends Component<Props, State> {
               key={projectId}
               onClick={() => this.handleProjectClick(projectId)}
               onKeyPress={() => this.handleProjectKeyPress(projectId)}
-              ref={(div) => this.projectRefs[projectId] = div}
+              ref={(div) => this.projectContRefs[projectId] = div}
               tabIndex={selectedProject === projectId ? undefined : 0}
               role="button"
             >
-              <SingleProject projectId={projectId} isSelected={selectedProject === projectId} />
+              <SingleProject
+                projectId={projectId}
+                isSelected={selectedProject === projectId}
+              />
             </ProjectContainer>
           ))}
         </ProjectGrid>
