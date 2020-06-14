@@ -19,6 +19,7 @@ const Container = styled('div')`
   }
   img {
     box-shadow: ${props => props.theme.bigBoxShadow};
+    border-radius: 4px;
     margin-bottom: 1em;
     opacity: 0.9;
     transition: opacity 150ms ease-out;

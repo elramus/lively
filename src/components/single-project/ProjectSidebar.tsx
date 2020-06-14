@@ -13,7 +13,7 @@ const Container = styled('div')<{ isSelected: boolean }>`
     margin-bottom: 2em;
     height: 15em;
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
     opacity: ${props => (props.isSelected ? '1' : '0.75')};
     box-shadow: ${props => props.theme.bigBoxShadow};
