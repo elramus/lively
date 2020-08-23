@@ -54,8 +54,8 @@ const About = ({ history }: RouteComponentProps) => (
       noBg
     />
     <h1>About Luke</h1>
-    <p>Hi there, I’m a software engineer and UI/UX designer. I get my kicks from creating web experiences that magically wrestle complexity into delightful simplicity. <strong>But really I just love making powerful tools for people so they can work smarter.</strong></p>
-    <p>I have an MS in Human-Computer Interaction and a voracious appetite for learning new tech and creating useful things with it. My favorite tools these days are <strong>React, TypeScript, Python</strong>, and <strong>Laravel</strong>. Currently I work at the University of Chicago Law School where we build custom web applications for faculty, students, and staff when off-the-shelf solutions don't quite fit our needs.</p>
+    <p>Hi there, I’m a web developer and UI/UX designer. I get my kicks from creating web experiences that magically wrestle complexity into delightful simplicity. <strong>But really I just love making powerful tools for people so they can work smarter and enjoy doing it.</strong></p>
+    <p>I have an MS in Human-Computer Interaction and a voracious appetite for learning new tech and creating useful things with it. My favorite tools these days are <strong>React, TypeScript</strong>, and <strong>Python</strong>. Currently I work at the University of Chicago Law School where we build custom web applications for faculty, students, and staff when off-the-shelf solutions don't quite fit our needs.</p>
     <ul>
       <li>
         <a href="https://github.com/facebook/react" target="_blank" rel="noopener noreferrer">

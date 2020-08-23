@@ -20,7 +20,6 @@ export const haney: Project = {
     haneyImgs.twoLg,
     haneyImgs.threeLg,
   ],
-  url: 'http://www.bryanhaney.com',
   tech: [
     {
       icon: ['fab', 'js'],
