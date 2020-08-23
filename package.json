@@ -12,7 +12,7 @@
     "@fortawesome/pro-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "gsap": "^2.1.2",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-medium-image-zoom": "^3.0.15",
