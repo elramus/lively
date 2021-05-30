@@ -27,6 +27,13 @@ const Container = styled('div')`
 		margin-bottom: 1em;
 		text-align: left;
 	}
+	a {
+		color: white;
+		font-weight: bold;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 	ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(6.5em, 1fr));
@@ -70,10 +77,13 @@ const About: FC = () => {
 			<p>
 				I have an MS in Human-Computer Interaction and a voracious appetite for learning
 				new tech and creating useful things with it. My favorite tools these days are{' '}
-				<strong>React, TypeScript</strong>, and <strong>Python</strong>. Currently I work
-				at the University of Chicago Law School where we build custom web applications for
-				faculty, students, and staff when off-the-shelf solutions don't quite fit our
-				needs.
+				<strong>React, TypeScript</strong>, and <strong>Django</strong>. Currently I work
+				at{' '}
+				<a href="https://stratuscode.com/" target="_blank" rel="noreferrer">
+					Stratus Code
+				</a>
+				, a small software studio where we help growing businesses utilize and scale their
+				data.
 			</p>
 			<ul>
 				<li>
