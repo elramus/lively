@@ -7,21 +7,14 @@ import measurements from './measurements/reducers'
 import selectedProject from './selectedProject/reducers'
 
 const rootReducer = combineReducers({
-  measurements,
-  selectedProject,
-  featImgsLoaded,
+	measurements,
+	selectedProject,
+	featImgsLoaded,
 })
 
 // Global State Type
-export type AppState = ReturnType<typeof rootReducer>;
+export type AppState = ReturnType<typeof rootReducer>
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(
-    applyMiddleware(
-      thunkMiddleware,
-    ),
-  ),
-)
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunkMiddleware)))
 
 export default store

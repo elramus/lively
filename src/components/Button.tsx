@@ -1,37 +1,35 @@
+import { FC } from 'react'
+
 import { IconName, IconPrefix } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-
-import styled from '../utils/styledComponents'
+import styled from 'styled-components'
 
 interface Props {
-  text: string;
-  icon?: [IconPrefix, IconName];
-  style?: React.CSSProperties;
+	text: string
+	icon?: [IconPrefix, IconName]
+	style?: React.CSSProperties
 }
 
 const Container = styled('button')`
-  padding: 1em;
-  background-color: ${props => props.theme.red};
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  font-size: ${props => props.theme.ms(-1)};
-  svg {
-    margin-left: 0.5em;
-  }
-  &:hover {
-    opacity: 0.85;
-  }
+	padding: 1em;
+	background-color: ${props => props.theme.red};
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	font-size: ${props => props.theme.ms(-1)};
+	svg {
+		margin-left: 0.5em;
+	}
+	&:hover {
+		opacity: 0.85;
+	}
 `
 
-const Button = ({ text, icon, ...rest }: Props) => (
-  <Container type="button" {...rest}>
-    {text}
-    {icon && (
-      <FontAwesomeIcon icon={icon} />
-    )}
-  </Container>
+const Button: FC<Props> = ({ text, icon, ...rest }) => (
+	<Container type="button" {...rest}>
+		{text}
+		{icon && <FontAwesomeIcon icon={icon} />}
+	</Container>
 )
 
 export default Button

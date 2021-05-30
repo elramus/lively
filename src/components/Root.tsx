@@ -1,61 +1,63 @@
+import { FC } from 'react'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faAdobe,
-  faGithub,
-  faGulp,
-  faJs,
-  faLinkedin,
-  faReact,
-  faSketch,
-  faWordpress,
+	faGithub,
+	faGulp,
+	faJs,
+	faLinkedin,
+	faReact,
+	faSketch,
+	faWordpress,
 } from '@fortawesome/free-brands-svg-icons'
 import {
-  faAngleDown,
-  faCode,
-  faEnvelope,
-  faExternalLinkSquare,
-  faHandSpock,
-  faLongArrowLeft,
-  faWrench,
+	faAngleDown,
+	faCode,
+	faEnvelope,
+	faExternalLinkSquare,
+	faHandSpock,
+	faLongArrowLeft,
+	faPalette,
+	faWrench,
 } from '@fortawesome/pro-regular-svg-icons'
-import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+
 import store from '../store'
 import GlobalStyles from '../utils/globalStyles'
-import { ThemeProvider } from '../utils/styledComponents'
 import { theme } from '../utils/theme'
 import App from './App'
 
 library.add(
-  faAdobe,
-  faAngleDown,
-  faCode,
-  faEnvelope,
-  faExternalLinkSquare,
-  faGulp,
-  faGithub,
-  faHandSpock,
-  faJs,
-  faLinkedin,
-  faLongArrowLeft,
-  faReact,
-  faSketch,
-  faWrench,
-  faWordpress,
+	faAngleDown,
+	faCode,
+	faEnvelope,
+	faExternalLinkSquare,
+	faGulp,
+	faGithub,
+	faHandSpock,
+	faJs,
+	faLinkedin,
+	faLongArrowLeft,
+	faPalette,
+	faReact,
+	faSketch,
+	faWrench,
+	faWordpress
 )
 
-const Root = () => (
-  <BrowserRouter>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyles />
-          <App />
-        </>
-      </ThemeProvider>
-    </Provider>
-  </BrowserRouter>
+const Root: FC = () => (
+	<BrowserRouter>
+		<Provider store={store}>
+			<ThemeProvider theme={theme}>
+				<>
+					<GlobalStyles />
+					<App />
+				</>
+			</ThemeProvider>
+		</Provider>
+	</BrowserRouter>
 )
 
 export default Root

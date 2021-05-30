@@ -3,15 +3,15 @@ import { SELECT_PROJECT, SelectedProjectActions, SelectedProjectState } from './
 export const initialSelectedProjectState: SelectedProjectState = null
 
 const selectedProject = (
-  state: SelectedProjectState = initialSelectedProjectState,
-  action: SelectedProjectActions,
+	state: SelectedProjectState = initialSelectedProjectState,
+	action: SelectedProjectActions
 ): SelectedProjectState => {
-  switch (action.type) {
-    case SELECT_PROJECT:
-      return action.name
-    default:
-      return state
-  }
+	switch (action.type) {
+		case SELECT_PROJECT:
+			return action.name
+		default:
+			return state
+	}
 }
 
 export default selectedProject

@@ -1,25 +1,27 @@
-import React from 'react'
+import { FC } from 'react'
+
 import { Route } from 'react-router-dom'
-import styled from '../utils/styledComponents'
+import styled from 'styled-components'
+
+import About from './About'
 import Footer from './Footer'
 import Header from './Header'
 import WorkPane from './WorkPane'
-import About from './About'
 
 const Container = styled('div')`
-  position: relative;
-  padding: 0 2em;
-  margin: 0 auto;
-  max-width: ${props => props.theme.globalMaxWidth};
+	position: relative;
+	padding: 0 2em;
+	margin: 0 auto;
+	max-width: ${props => props.theme.globalMaxWidth};
 `
 
-const App = () => (
-  <Container>
-    <Header />
-    <Route exact path="/" component={WorkPane} />
-    <Route exact path="/about" component={About} />
-    <Footer />
-  </Container>
+const App: FC = () => (
+	<Container>
+		<Header />
+		<Route exact path="/" component={WorkPane} />
+		<Route exact path="/about" component={About} />
+		<Footer />
+	</Container>
 )
 
 export default App

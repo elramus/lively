@@ -1,0 +1,6 @@
+{
+	"emptyLinesBetweenGroups": 1,
+	"groupRules": ["^react$", {}, "^[.]"],
+	"trailingComma": "multiLine",
+	"wrappingStyle": "prettier"
+}

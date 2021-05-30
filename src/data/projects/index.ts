@@ -7,13 +7,13 @@ import { winterlight } from './winterlight'
 // import { localizer } from './localizer'
 
 const projects = {
-  oversight,
-  haney,
-  mmuf,
-  hubspot,
-  music,
-  winterlight,
-  // localizer,
+	oversight,
+	haney,
+	mmuf,
+	hubspot,
+	music,
+	winterlight,
+	// localizer,
 }
 
 export default projects

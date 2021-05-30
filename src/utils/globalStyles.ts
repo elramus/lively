@@ -1,5 +1,6 @@
+import { createGlobalStyle } from 'styled-components'
+
 import asfaltLight from '../media/asfalt-light.png'
-import { createGlobalStyle } from './styledComponents'
 
 const GlobalStyles = createGlobalStyle`
   /* global */
