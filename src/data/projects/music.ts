@@ -14,7 +14,6 @@ export const music: Project = {
 	featuredImg: musicImgs.featured,
 	galleryImgsSm: [musicImgs.oneSm, musicImgs.twoSm, musicImgs.threeSm],
 	galleryImgsLg: [musicImgs.oneLg, musicImgs.twoLg, musicImgs.threeLg],
-	url: 'https://lucian.uchicago.edu/blogs/musiccurriculum/',
 	tech: [
 		{
 			icon: ['fab', 'js'],
