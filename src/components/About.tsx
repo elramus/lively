@@ -67,12 +67,13 @@ const About: FC = () => {
 			/>
 			<h1>About Luke</h1>
 			<p>
-				Hi there, I’m a web developer and UI/UX designer. I get my kicks from creating web
-				experiences that magically wrestle complexity into delightful simplicity.{' '}
+				Hi there, I'm a software engineer and UI/UX designer.{' '}
 				<strong>
-					But really I just love making powerful tools for people so they can work
-					smarter and enjoy doing it.
+					I get my kicks from creating web experiences that magically wrestle complexity
+					into delightful simplicity
 				</strong>
+				. But really I just love making powerful tools for people so they can work smarter
+				and enjoy doing it.
 			</p>
 			<p>
 				I have an MS in Human-Computer Interaction and a voracious appetite for learning
@@ -80,7 +81,7 @@ const About: FC = () => {
 				<strong>React, TypeScript</strong>, and <strong>Django</strong>. Currently I work
 				at{' '}
 				<a href="https://stratuscode.com/" target="_blank" rel="noreferrer">
-					Stratus Code
+					StratusCode
 				</a>
 				, a small software studio where we help growing businesses utilize and scale their
 				data.
