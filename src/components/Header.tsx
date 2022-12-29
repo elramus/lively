@@ -33,13 +33,15 @@ const Container = styled('div')`
 `
 
 const Header: FC = () => (
-	<Container>
-		<Link to="/" className="left">
-			<h1>D. Luke Ramus</h1>
-			<h4>UI Developer &amp; Designer</h4>
-		</Link>
-		<Nav />
-	</Container>
+	<div>
+		<Container>
+			<Link to="/" className="left">
+				<h1>D. Luke Ramus</h1>
+				<h4>UI Developer &amp; Designer</h4>
+			</Link>
+			<Nav />
+		</Container>
+	</div>
 )
 
 export default Header

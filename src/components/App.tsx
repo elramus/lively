@@ -9,10 +9,13 @@ import Header from './Header'
 import WorkPane from './WorkPane'
 
 const Container = styled('div')`
+	display: grid;
+	grid-template-rows: auto 1fr auto;
 	position: relative;
 	padding: 0 2em;
 	margin: 0 auto;
 	max-width: ${props => props.theme.globalMaxWidth};
+	min-height: 100vh;
 `
 
 const App: FC = () => (

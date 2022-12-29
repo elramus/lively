@@ -13,7 +13,6 @@ export const winterlight: Project = {
 	featuredImg: winterlightImgs.featured,
 	galleryImgsSm: [winterlightImgs.oneSm, winterlightImgs.twoSm, winterlightImgs.threeSm],
 	galleryImgsLg: [winterlightImgs.oneLg, winterlightImgs.twoLg, winterlightImgs.threeLg],
-	url: 'http://www.winterlightfilm.com',
 	tech: [
 		{
 			icon: ['fab', 'js'],
